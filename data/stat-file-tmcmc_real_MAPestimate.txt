@@ -3,209 +3,198 @@ using multiprocessing
 ======================== 
 stage number = 1 
 beta = 0.00000 
-ESS = 344 
+ESS = 580 
 scalem = 0.98 
 acceptance rate = 0.20 
 adapted max MCMC steps = 7 
 next MCMC Nsteps = 7 
-log_evidence till now = -1.86468410986191268641 
---- Execution time: 0.30 mins --- 
+log_evidence till now = -1.31669077257487154853 
+--- Execution time: 0.25 mins --- 
 ======================== 
 stage number = 2 
-beta = 0.00010 
-ESS = 998 
+beta = 0.00020 
+ESS = 999 
 scalem = 0.98 
-acceptance rate = 0.20 
+acceptance rate = 0.21 
 adapted max MCMC steps = 9 
 next MCMC Nsteps = 9 
-log_evidence till now = -2.84855781488605774854 
---- Execution time: 0.43 mins --- 
+log_evidence till now = -2.46815278224210832292 
+--- Execution time: 0.39 mins --- 
 ======================== 
 stage number = 3 
-beta = 0.00145 
-ESS = 999 
-scalem = 0.98 
-acceptance rate = 0.14 
-adapted max MCMC steps = 10 
-next MCMC Nsteps = 10 
-log_evidence till now = -5.44787768201350708352 
---- Execution time: 0.62 mins --- 
-======================== 
-stage number = 4 
-beta = 0.00285 
-ESS = 1000 
-scalem = 0.98 
-acceptance rate = 0.09 
-adapted max MCMC steps = 10 
-next MCMC Nsteps = 10 
-log_evidence till now = -7.73814710309413733569 
---- Execution time: 0.83 mins --- 
-======================== 
-stage number = 5 
-beta = 0.00430 
-ESS = 999 
-scalem = 0.98 
-acceptance rate = 0.05 
-adapted max MCMC steps = 10 
-next MCMC Nsteps = 10 
-log_evidence till now = -9.60847697629717600876 
---- Execution time: 1.01 mins --- 
-======================== 
-stage number = 6 
-beta = 0.00653 
-ESS = 1000 
-scalem = 0.98 
-acceptance rate = 0.06 
-adapted max MCMC steps = 10 
-next MCMC Nsteps = 10 
-log_evidence till now = -11.53586378418927438361 
---- Execution time: 1.21 mins --- 
-======================== 
-stage number = 7 
-beta = 0.00992 
-ESS = 999 
-scalem = 0.98 
-acceptance rate = 0.12 
-adapted max MCMC steps = 10 
-next MCMC Nsteps = 10 
-log_evidence till now = -13.71522188818252807607 
---- Execution time: 1.30 mins --- 
-======================== 
-stage number = 8 
-beta = 0.01430 
+beta = 0.00141 
 ESS = 1000 
 scalem = 0.98 
 acceptance rate = 0.15 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -15.56389969727127642329 
---- Execution time: 1.36 mins --- 
+log_evidence till now = -4.88963262769843076683 
+--- Execution time: 0.57 mins --- 
+======================== 
+stage number = 4 
+beta = 0.00265 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.09 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -6.71061331330331967138 
+--- Execution time: 0.76 mins --- 
+======================== 
+stage number = 5 
+beta = 0.00419 
+ESS = 1000 
+scalem = 0.98 
+acceptance rate = 0.06 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -8.47755239722074982467 
+--- Execution time: 0.96 mins --- 
+======================== 
+stage number = 6 
+beta = 0.00716 
+ESS = 1000 
+scalem = 0.98 
+acceptance rate = 0.15 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -10.53001117190139623858 
+--- Execution time: 1.14 mins --- 
+======================== 
+stage number = 7 
+beta = 0.01143 
+ESS = 999 
+scalem = 0.98 
+acceptance rate = 0.17 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -12.38491935183637693285 
+--- Execution time: 1.24 mins --- 
+======================== 
+stage number = 8 
+beta = 0.01877 
+ESS = 1000 
+scalem = 0.98 
+acceptance rate = 0.22 
+adapted max MCMC steps = 10 
+next MCMC Nsteps = 10 
+log_evidence till now = -14.13323718382060256715 
+--- Execution time: 1.42 mins --- 
 ======================== 
 stage number = 9 
-beta = 0.02177 
+beta = 0.03161 
 ESS = 999 
 scalem = 0.98 
-acceptance rate = 0.20 
+acceptance rate = 0.24 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -17.21319101165195064596 
---- Execution time: 1.44 mins --- 
+log_evidence till now = -15.90960821489284349184 
+--- Execution time: 1.53 mins --- 
 ======================== 
 stage number = 10 
-beta = 0.03602 
+beta = 0.05579 
 ESS = 999 
 scalem = 0.98 
-acceptance rate = 0.23 
+acceptance rate = 0.25 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -18.99343049841815300738 
---- Execution time: 1.46 mins --- 
+log_evidence till now = -17.68486535463979336669 
+--- Execution time: 1.57 mins --- 
 ======================== 
 stage number = 11 
-beta = 0.06151 
-ESS = 999 
+beta = 0.10271 
+ESS = 1000 
 scalem = 0.98 
-acceptance rate = 0.26 
+acceptance rate = 0.27 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -20.72403530819432049270 
---- Execution time: 1.47 mins --- 
+log_evidence till now = -19.41961035603140928174 
+--- Execution time: 1.55 mins --- 
 ======================== 
 stage number = 12 
-beta = 0.10880 
+beta = 0.18520 
 ESS = 999 
 scalem = 0.98 
 acceptance rate = 0.27 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -22.34063827805341517774 
---- Execution time: 1.46 mins --- 
+log_evidence till now = -21.15134298522794509267 
+--- Execution time: 1.55 mins --- 
 ======================== 
 stage number = 13 
-beta = 0.20115 
-ESS = 1000 
+beta = 0.33648 
+ESS = 999 
 scalem = 0.98 
-acceptance rate = 0.26 
+acceptance rate = 0.27 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -24.05411159042465740754 
---- Execution time: 1.46 mins --- 
+log_evidence till now = -22.87466438688215575326 
+--- Execution time: 1.55 mins --- 
 ======================== 
 stage number = 14 
-beta = 0.37300 
+beta = 0.61505 
 ESS = 999 
 scalem = 0.98 
 acceptance rate = 0.28 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -25.80324361581067904581 
---- Execution time: 1.47 mins --- 
+log_evidence till now = -24.62439448824800791726 
+--- Execution time: 1.55 mins --- 
 ======================== 
 stage number = 15 
-beta = 0.67897 
-ESS = 999 
-scalem = 0.98 
-acceptance rate = 0.28 
-adapted max MCMC steps = 10 
-next MCMC Nsteps = 10 
-log_evidence till now = -27.55780642127782087414 
---- Execution time: 1.47 mins --- 
-======================== 
-stage number = 16 
 beta = 1.00000 
-ESS = 1440 
+ESS = 1238 
 scalem = 0.98 
 acceptance rate = 0.28 
 adapted max MCMC steps = 10 
 next MCMC Nsteps = 10 
-log_evidence till now = -28.61179214979919294137 
---- Execution time: 1.48 mins --- 
+log_evidence till now = -25.92830785653370639920 
+--- Execution time: 1.54 mins --- 
 ======================== 
---- Execution time: 19.04 mins --- 
-log_evidence = -28.61179214979919294137 
+--- Execution time: 17.84 mins --- 
+log_evidence = -25.92830785653370639920 
 closing multiprocessing 
 
-
-closing multiprocessing
-1142.2674570083618
-/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:314: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
+1070.1900436878204
+/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:318: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
   Xpdf = st.kde.gaussian_kde(statSmp[j,:],bw_method = 0.3)  ## adjust kernel width
 0.2316230351238589
-MAP estimate for $a_{0}$: 0.14607125852877384
-COV for $a_{0}$: 0.02020340136909005
-[0.0, 142.59336215479732]
+MAP estimate for $a_{0}$: 0.14554060924791198
+COV for $a_{0}$: 0.020309616797602244
+[0.0, 143.49418133707]
 =======================
-/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:314: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
+/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:318: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
   Xpdf = st.kde.gaussian_kde(statSmp[j,:],bw_method = 0.3)  ## adjust kernel width
 0.2316230351238589
-MAP estimate for $a_{1}$: -0.10491742023360927
-COV for $a_{1}$: 0.08256107466101886
-[0.0, 49.99071597705989]
+MAP estimate for $a_{1}$: -0.10311810747719499
+COV for $a_{1}$: 0.08416514888947142
+[0.0, 49.45352376427444]
 =======================
-/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:314: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
+/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:318: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
   Xpdf = st.kde.gaussian_kde(statSmp[j,:],bw_method = 0.3)  ## adjust kernel width
 0.2316230351238589
-MAP estimate for $a_{2}$: 0.05858411528406594
-COV for $a_{2}$: 0.1508140521409936
-[0.0, 47.66346326993166]
+MAP estimate for $a_{2}$: 0.05686812537904348
+COV for $a_{2}$: 0.15266224412566984
+[0.0, 46.99040567850054]
 =======================
-/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:314: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
+/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:318: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
   Xpdf = st.kde.gaussian_kde(statSmp[j,:],bw_method = 0.3)  ## adjust kernel width
 0.2316230351238589
-MAP estimate for $a_{3}$: -0.06267672054260034
-COV for $a_{3}$: 0.1037977368974597
-[0.0, 64.08769767465608]
+MAP estimate for $a_{3}$: -0.06187533897864235
+COV for $a_{3}$: 0.10218771686302792
+[0.0, 65.58821805817423]
 =======================
-/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:314: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
+/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:318: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
   Xpdf = st.kde.gaussian_kde(statSmp[j,:],bw_method = 0.3)  ## adjust kernel width
 0.2316230351238589
-MAP estimate for $a_{4}$: 0.02428505222781276
-COV for $a_{4}$: 0.16903811097226545
-[0.0, 103.24701392623942]
+MAP estimate for $a_{4}$: 0.0237909460747504
+COV for $a_{4}$: 0.16650852641241315
+[0.0, 104.0564377350237]
 =======================
-/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:314: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
+/Users/sudhipv/documents/sum_of_sigmoid/inference/mcmc/singlephu_mult_mcmc.py:318: DeprecationWarning: Please import `gaussian_kde` from the `scipy.stats` namespace; the `scipy.stats.kde` namespace is deprecated and will be removed in SciPy 2.0.0.
   Xpdf = st.kde.gaussian_kde(statSmp[j,:],bw_method = 0.3)  ## adjust kernel width
 0.2316230351238589
-MAP estimate for $a_{5}$: 0.07704142246235639
-COV for $a_{5}$: 0.026018388110616766
-[0.0, 214.27164884099133]
+MAP estimate for $a_{5}$: 0.07768881525406633
+COV for $a_{5}$: 0.025896725303274883
+[0.0, 204.56533709806126]
+=======================
