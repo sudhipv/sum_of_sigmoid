@@ -1,7 +1,7 @@
 '''
 Using a parallel TMCMC sampler from "https://github.com/mukeshramancha/transitional-mcmc/tree/main"
 '''
-#### Code to infer many parameters for a single PHU
+#### Code to infer sigmoid parameters for a single PHU
 
 #!/usr/bin/python
 import os, math, sys, random
@@ -27,46 +27,33 @@ parallel_processing = 'multiprocessing' #'multiprocessing','mpi'
 #### CHANGE HERE ############
 
 ## Number of parameters to infer
-Npar = 6 # number of unknown parameters
+Npar = 8 # number of unknown parameters
 
 
 ############# REAL DATA ######################
 
 phiTrue = np.zeros([Npar])
 
-### SETTING THE LOWER AND UPPER BOUNDS BASED ON MANUAL TUNING. JUST HAVING KNOWLEDGE IF THE PARAMETER IS POSITIVE OR NEGATIVE
 
-# X_low = [0, -0.2, 0, -0.2, 0,  0,  -0.2, 0,  -0.2]
-# X_up = [0.2, 0,  0.2, 0,  0.2, 0.2, 0,  0.2,  0]
 
 
 ############# SYNTHETIC DATA ######################
 
 # ### FOR CASES WITH TRUE PARAMETER VALUES - SYNTHETIC DATA  ###############
 # ## True parameters of your model
-# phiTrue = [ 0.15, -0.1, 0.05,  -0.07, 0.035, 0.08] 
+# phiTrue = [ 0.15, -0.1, 0.05,  -0.07, 0.035, 0.08, 430, 430] 
 
 
 ### MLE OF YOUR PARAMETERS WHICH WILL BE USED AS PRIORS FOR TMCMC. UNIFORM PRIORS WITHIN THE BOUNDS.
-x_MLE_low = np.zeros([6])
-x_MLE_up = np.zeros([6])
+### SETTING THE LOWER AND UPPER BOUNDS BASED ON MANUAL TUNING. JUST HAVING KNOWLEDGE IF THE PARAMETER IS POSITIVE OR NEGATIVE
+
+x_MLE_low = np.zeros([8])
+x_MLE_up = np.zeros([8])
 
 
-bval = 0.2
+x_MLE_low = [0,     -0.2,    0,     -0.2,    0,     0,      0,    0]
+x_MLE_up = [0.2,    0,      0.2,    0,       0.2,   0.2,    0.001 * 2794356.0,   0.001 * 2794356.0]
 
-x_MLE_low = [ 0.15090866  - bval, -0.12016234 - bval,  0.08849439  - bval, -0.11343904 - bval, 0.06655221  - bval,  0.05820387 - bval]
-
-x_MLE_up = [ 0.15090866  + bval, -0.12016234 + bval, 0.08849439  + bval, -0.11343904 + bval, 0.06655221  + bval, 0.05820387 + bval]
-
-
-
-# [ 0.14588876 -0.10323568  0.05907849 -0.06301169  0.02393115  0.07729624]
-
-### FOR MAP ESTIMATE
-
-# x_MLE_low = [ 0.14588876  - bval, -0.10323568 - bval,  0.05907849 - bval, -0.06301169 - bval, 0.02393115  - bval,  0.07729624 - bval]
-
-# x_MLE_up = [  0.14588876  + bval, -0.10323568 +  bval,  0.05907849 + bval, -0.06301169 + bval, 0.02393115  + bval,  0.07729624 + bval]
 
 X_low = x_MLE_low
 X_up = x_MLE_up
@@ -75,7 +62,7 @@ X_up = x_MLE_up
 #### CHANGE HERE 
 #### LABEL VALUES TO BE INCLUDED IN PLOTS
 
-mylabel = [r'$a_{0}$',r'$a_{1}$', r'$a_{2}$',r'$a_{3}$', r'$a_{4}$', r'$a_{5}$']
+mylabel = [r'$a_{0}$',r'$a_{1}$', r'$a_{2}$',r'$a_{3}$', r'$a_{4}$', r'$a_{5}$', r'$a_{6}$', r'$a_{7}$']
 
 #Generates random variables for each of the parameters:
 all_params = [None] * Npar #initialize list of parameters
@@ -87,7 +74,7 @@ for jj in range(0,Npar):
 ####### CHANGE HERE #####################
 dt = 0.1
 tstart = 0
-tlim = 160
+tlim = 200
 t = np.arange(tstart, tlim, 1)
 
 tmoh = np.arange(0, tlim, dt)
@@ -120,7 +107,7 @@ D = np.zeros((len(tmoh),N_city))
 N = np.zeros((len(tmoh),N_city))
 
 PHU_path = '/Users/sudhipv/documents/sum_of_sigmoid/PHU_Data'
-figpath = '/Users/sudhipv/documents/sum_of_sigmoid/figs/mcmc/real_2'
+figpath = '/Users/sudhipv/documents/sum_of_sigmoid/figs/mcmc/synth_initial_noise10_case2'
 datapath = '/Users/sudhipv/documents/sum_of_sigmoid/data'
 Data = np.zeros([365,4])
 
@@ -139,43 +126,46 @@ population_by_phu = np.genfromtxt(f'{PHU_path}/population_by_phu.csv', delimiter
 ####### CHANGE HERE #####################
 total = population_by_phu[29,1]
 
-###### CHANGE HERE ###########
-E[0,0] = Data[0,0]
-I[0,0] = Data[0,0]
-N[0,0] = total
-###### CHANGE HERE ###########
-
-R[0,0] = 0
-D[0,0] = 0
-S[0,0] = N[0,0] - E[0,0] - I[0,0] - R[0,0] - D[0,0]
-
 # target_file1 = './toronto_synthetic_data_75.csv'
 
 ####### CHANGE HERE #####################
 #### FOR LOADING YOUR SYNTHETIC DATA
 
-# I_synthetic = np.zeros((len(t),N_city))
-# file = np.genfromtxt(f'{datapath}/toronto_synthetic_data_case2.csv', delimiter=',')
-# I_synthetic[:,0] = file[tstart:tlim]
+I_synthetic = np.zeros((len(t),N_city))
+# file = np.genfromtxt(f'{datapath}/toronto_synthetic_data_noise10.csv', delimiter=',')
+file = np.genfromtxt(f'{datapath}/brandon_synthetic_data_case2.dat', delimiter=',')
+I_synthetic[:,0] = file[tstart:tlim]
 
 #### OBSERVED MOH DATA
-I_synthetic = np.zeros((len(t),N_city))
-I_synthetic[0,0] = I[0,0]
-I_synthetic[:,0] =  Data[tstart:tlim,0]
+# I_synthetic = np.zeros((len(t),N_city))
+# I_synthetic[0,0] = I[0,0]
+# I_synthetic[:,0] =  Data[tstart:tlim,0]
 
 t1 =  20
 
-t2 =  35
+t2 =  40
 
 t3 = 60
 
-t4 = 80
+t4 = 90
 
-t5 = 140
+t5 = 120
 
+t6 = 140
 
 def loglikfun(param):
 
+    ###### CHANGE HERE ###########
+    E[0,0] = param[7]
+    I[0,0] = param[8]
+    N[0,0] = total
+
+
+    ###### CHANGE HERE ###########
+
+    R[0,0] = 0
+    D[0,0] = 0
+    S[0,0] = N[0,0] - E[0,0] - I[0,0] - R[0,0] - D[0,0]
 
 ####### CHANGE HERE #####################
 #### USE THE TIME FOR EACH SIGMOID ACCORDING TO YOUR PHU #########
@@ -184,7 +174,8 @@ def loglikfun(param):
     beta_i[:,0] = param[0]  + param[1]/(1 + np.exp((t1-tmoh))) \
         +  param[2]/(1 + np.exp((t2-tmoh))) + param[3]/(1 + np.exp((t3-tmoh))) \
         + param[4]/(1 + np.exp((t4-tmoh)))  + param[5]/(1 + np.exp((t5-tmoh)))  \
-        # + param[6]/(1 + np.exp((t6-tmoh))) + param[7]/(1 + np.exp((t7-tmoh)))
+        + param[6]/(1 + np.exp((t6-tmoh))) 
+        # + param[7]/(1 + np.exp((t7-tmoh)))
 
     # + parameter_vector_in[8]/(1 + np.exp((t8-tmoh)))
 
@@ -196,6 +187,15 @@ def loglikfun(param):
 
     loglik = 0
 
+
+#### For adding the log likelihood for initial condition
+
+    multiplier = (1/(np.sqrt(2*np.pi)*sigma * I[0,0]))
+
+    err = (I_synthetic[0,0] -  I[0,0])**2
+
+    # log likelihood
+    loglik = loglik  + np.log(multiplier) - (err/(2*(sigma * I[0,0])**2)) 
 
     for kk in range(1,len(tmoh)):
 
@@ -244,7 +244,7 @@ def loglikfun(param):
                     print("param,", param )
                     print("beta,", beta_i[kk,0] )
                     loglik = -1 * np.inf
-
+                    
 
     return loglik
 
@@ -268,11 +268,11 @@ if __name__ == '__main__': #the main part of the program.
 
     ####### CHANGE HERE #####################
     ### Number of samples to use at each stage
-    Nsmp = 2000
+    Nsmp = 4000
     import time
     start = time.time()
 
-    Xsmp,Chain,_,comm = run_tmcmc(Nsmp,all_params,logposterior,parallel_processing,f'{datapath}/stat-file-tmcmc_real_case2.txt')
+    Xsmp,Chain,_,comm = run_tmcmc(Nsmp,all_params,logposterior,parallel_processing,f'{datapath}/stat-file-tmcmc_synth_case2_noise10_initial_8param.txt')
 
 ##### IF YOU WANT TO LOAD PREVIOUSLY GENERATED SAMPLES 
     # Xsmp = np.loadtxt(f'{datapath}/muVec_synthetic_case2.dat')
@@ -283,8 +283,8 @@ if __name__ == '__main__': #the main part of the program.
     print(end - start)
 
     Xsmp = Xsmp.T
-    np.savetxt(f'{datapath}/muVec_real_case2.dat',Xsmp)
-    np.savetxt(f'{datapath}/muVec_long_real_case2.dat',Chain)
+    np.savetxt(f'{datapath}/muVec_synth_case2_noise10_initial_8param.dat',Xsmp)
+    np.savetxt(f'{datapath}/muVec_long_synth_case2_noise10_initial_8param.dat',Chain)
 
     mpl.rcParams.update({'font.size':14})
     for ii in range(0,Npar):
@@ -334,7 +334,6 @@ if __name__ == '__main__': #the main part of the program.
         if j ==0:
              ### CHANGE HERE ######
              ### Synthetic Data - Uncomment ######
-            # ax1.plot([phiTrue[j],phiTrue[j]],myYlim,'--r',label='True')
             ax1.legend(loc='upper left', numpoints = 1)
         print(myYlim)
         print('=======================')
