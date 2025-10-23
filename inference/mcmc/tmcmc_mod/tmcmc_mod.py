@@ -146,7 +146,7 @@ def compute_beta_update_evidence(beta, log_likelihoods,
     # (check it, might not be correct, as we remove log.likelihood max in compute_beta)
     # evidence = evidence * (sum(Wm)/N)
     # log_evidence = log_evidence + logsumexp(log_Wm) - np.log(N)
-    log_evidence = log_evidence + np.log((sum(Wm)/N))
+    log_evidence = log_evidence + np.log((sum(Wm)/N)) + inc_beta*log_likelihoods.max() 
 
     return new_beta, log_evidence, Wm_n, ESS
 
@@ -173,7 +173,7 @@ def propose(current, covariance, n):
     return np.random.multivariate_normal(current, covariance, n)
 
 
-def MCMC_MH(Priormsum, Em, Nm_steps, current, likelihood_current,
+def MCMC_MH(Em, Nm_steps, current, likelihood_current,
             beta, numAccepts, all_pars, log_likelihood):
     """
     Pertubation: Markov chain Monte Carlo using Metropolis-Hastings
@@ -181,8 +181,6 @@ def MCMC_MH(Priormsum, Em, Nm_steps, current, likelihood_current,
 
     Parameters
     ----------
-    Priormsum : float
-        The sum of logprior values
     Em : numpy array of size Np x Np
         proposal covarince matrix.
     Nm_steps : int
@@ -227,9 +225,10 @@ def MCMC_MH(Priormsum, Em, Nm_steps, current, likelihood_current,
 
         # proposal satisfies the prior constraints
         if np.isfinite(prior_proposal):
-            likelihood_proposal = log_likelihood(proposal) - Priormsum
+            # log_likelihood returns log posterior, subtract prior to get log likelihood
+            likelihood_proposal = log_likelihood(proposal) - prior_proposal
         else:
-            likelihood_proposal = -np.Inf   # dont run the FE model
+            likelihood_proposal = -np.inf   # dont run the FE model
 
         log_acceptance = beta*(likelihood_proposal - likelihood_current)
 
@@ -335,9 +334,10 @@ def run_tmcmc(N, all_pars, log_likelihood, parallel_processing,
         #Lm = np.array([log_likelihood(ind, Sm[ind])
                        #for ind in range(N)]).squeeze()
     Lm = np.array(Lmt).squeeze() #conversion to an array
-    Priormsum = np.sum(Priorm)
+    # Normalize: if log_likelihood returns log posterior, subtract each particle's own log prior
+    # This gives us the log likelihood values needed for evidence calculation
     for j3 in range(N):
-        Lm[j3] = -Priormsum + Lm[j3]
+        Lm[j3] = Lm[j3] - Priorm[j3]
 
     while beta < 1:
         stage_num += 1
@@ -380,7 +380,7 @@ def run_tmcmc(N, all_pars, log_likelihood, parallel_processing,
         numAccepts = 0
 
         if parallelize_MCMC:
-            iterables = [(Priormsum,Em, Nm_steps, Smcap[j1], Lmcap[j1],
+            iterables = [(Em, Nm_steps, Smcap[j1], Lmcap[j1],
                           beta, numAccepts, all_pars,
                           log_likelihood) for j1 in range(N)] #put all function inputs onto an iterables variable for parallel processing below.
             if parallel_processing == 'multiprocessing':
@@ -388,7 +388,7 @@ def run_tmcmc(N, all_pars, log_likelihood, parallel_processing,
             elif parallel_processing == 'mpi':
                 results = list(executor.starmap(MCMC_MH, iterables))
         else:
-            results = [MCMC_MH(Priormsum,Em, Nm_steps, Smcap[j1], Lmcap[j1],
+            results = [MCMC_MH(Em, Nm_steps, Smcap[j1], Lmcap[j1],
                                beta, numAccepts, all_pars,
                                log_likelihood) for j1 in range(N)] #cases when parallel processing is not used.
 

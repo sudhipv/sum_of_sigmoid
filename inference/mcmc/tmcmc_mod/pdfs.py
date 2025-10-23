@@ -73,7 +73,7 @@ class Uniform(ProbabilityDensityFun):
         if (x-self.upper)*(x-self.lower) <= 0:
             lp = np.log(1/(self.upper-self.lower))
         else:
-            lp = -np.Inf
+            lp = -np.inf
         return lp
 
 
@@ -96,7 +96,7 @@ class HalfNormal(ProbabilityDensityFun):
         if x >= 0:
             lp = -np.log(self.sig)+0.5*np.log(2/np.pi)-((x*x)/(2*self.sig*self.sig))
         else:
-            lp = -np.Inf
+            lp = -np.inf
         return lp
 
 
@@ -126,7 +126,7 @@ class Normal(ProbabilityDensityFun):
 class TruncatedNormal(ProbabilityDensityFun):
     """ Truncated Normal distribution """
 
-    def __init__(self, mu=0, sig=1, low=-np.Inf, up=np.Inf):
+    def __init__(self, mu=0, sig=1, low=-np.inf, up=np.inf):
         """
         Parameters
         ----------
@@ -135,9 +135,9 @@ class TruncatedNormal(ProbabilityDensityFun):
         sig : float
             standard deviation. The default is 1.
         low : float
-            lower bound truncation. The default is -np.Inf.
+            lower bound truncation. The default is -np.inf.
         up : float
-            upper bound truncation. The default is np.Inf.
+            upper bound truncation. The default is np.inf.
 
         """
         self.mu = mu
