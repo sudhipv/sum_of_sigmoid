@@ -2,8 +2,6 @@
 
 The journal article associated with the code is submitted to PLOS-One and will be available soon online. 
 
-<img width="1263" alt="toronto" src="https://github.com/user-attachments/assets/98a40e26-a1cf-4e57-bc9a-30ca98d4103e" />
-
 ### REPO STRUCTURE
 
 1. PHU_data : Infection and population data for all the PHUs
