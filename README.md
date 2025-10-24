@@ -1,6 +1,6 @@
 ### This repository contains the codes to carry out Bayesian parameter estimation and predictions for the sum of sigmoid model of infection rate.
 
-The journal article associated with the code is submitted to PLOS-One and will be available soon online. 
+The journal article associated with the code is submitted to PLOS-One and will be available online soon.
 
 ### REPO STRUCTURE
 
