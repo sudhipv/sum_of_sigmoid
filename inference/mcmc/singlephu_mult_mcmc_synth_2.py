@@ -11,6 +11,7 @@ import scipy.stats as st
 import scipy.optimize as sopt
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from pathlib import Path
 from scipy.integrate import trapezoid
 
 # import tmcmc_alpha
@@ -99,9 +100,11 @@ R = np.zeros((len(tmoh),N_city))
 D = np.zeros((len(tmoh),N_city))
 N = np.zeros((len(tmoh),N_city))
 
-PHU_path = '/Users/sudhipv/documents/sum_of_sigmoid/PHU_Data'
-figpath = '/Users/sudhipv/documents/sum_of_sigmoid/figs/mcmc/synth_initial_noise10_case2_190'
-datapath = '/Users/sudhipv/documents/sum_of_sigmoid/data'
+ROOT = Path(__file__).resolve().parents[2]
+PHU_path = ROOT / 'PHU_Data'
+figpath = ROOT / 'figs' / 'mcmc' / 'synth_initial_noise10_case2_190'
+datapath = ROOT / 'data'
+figpath.mkdir(parents=True, exist_ok=True)
 Data = np.zeros([365,4])
 
 target_file1 = f'{PHU_path}/30-Toronto.csv'

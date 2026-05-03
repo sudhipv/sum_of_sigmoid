@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata in this file."
+title: "A Bayesian computation of time-varying infection rate for compartmental models"
+type: software
+authors:
+  - family-names: Sharma
+    given-names: Sudhi
+  - family-names: Robinson
+    given-names: Brandon
+  - family-names: Clarabut
+    given-names: David
+  - family-names: Khalil
+    given-names: Mohammad
+  - family-names: Bisaillon
+    given-names: Philippe
+  - family-names: Pettit
+    given-names: Chris L.
+  - family-names: Poirel
+    given-names: Dominique
+  - family-names: Sarkar
+    given-names: Abhijit
+license: GPL-3.0-only
+preferred-citation:
+  type: article
+  title: "A Bayesian computation of time-varying infection rate for compartmental models"
+  authors:
+    - family-names: Sharma
+      given-names: Sudhi
+    - family-names: Robinson
+      given-names: Brandon
+    - family-names: Clarabut
+      given-names: David
+    - family-names: Khalil
+      given-names: Mohammad
+    - family-names: Bisaillon
+      given-names: Philippe
+    - family-names: Pettit
+      given-names: Chris L.
+    - family-names: Poirel
+      given-names: Dominique
+    - family-names: Sarkar
+      given-names: Abhijit
+  year: 2025
