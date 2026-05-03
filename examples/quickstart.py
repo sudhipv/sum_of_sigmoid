@@ -23,7 +23,7 @@ def main():
     toronto_cases = np.genfromtxt(PHU_PATH / "30-Toronto.csv", delimiter=",")
     population_by_phu = np.genfromtxt(PHU_PATH / "population_by_phu.csv", delimiter=",")
     synthetic_case1 = np.genfromtxt(DATA_PATH / "toronto_synthetic_data_noise10.csv", delimiter=",")
-    synthetic_case2 = np.loadtxt(DATA_PATH / "brandon_synthetic_data_case2.dat")
+    synthetic_case2 = np.loadtxt(DATA_PATH / "synthetic_case2_data.dat")
 
     prior = pdfs.Uniform(lower=0.0, upper=0.2)
     prior_sample = prior.generate_rns(1)[0]

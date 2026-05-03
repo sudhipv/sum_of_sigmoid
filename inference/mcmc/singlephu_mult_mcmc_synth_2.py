@@ -129,7 +129,7 @@ total = population_by_phu[29,1]
 
 I_synthetic = np.zeros((len(t),N_city))
 # file = np.genfromtxt(f'{datapath}/toronto_synthetic_data_noise10.csv', delimiter=',')
-file = np.genfromtxt(f'{datapath}/brandon_synthetic_data_case2.dat', delimiter=',')
+file = np.genfromtxt(f'{datapath}/synthetic_case2_data.dat', delimiter=',')
 I_synthetic[:,0] = file[tstart:tlim]
 
 

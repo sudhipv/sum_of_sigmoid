@@ -74,7 +74,7 @@ Manual tuning is optional, but recommended before MLE and MCMC because it gives 
 3. Run MCMC inference:
    - `inference/mcmc/singlephu_mult_mcmc.py`
 4. Plot the MCMC results:
-   - `inference/mcmc/plot_synth_case1.ipynb`
+   - `inference/plotting/plot_synth_case1.ipynb`
 
 #### Synthetic data case 2
 
@@ -84,9 +84,9 @@ Manual tuning is optional, but recommended before MLE and MCMC because it gives 
 3. Run MCMC inference:
    - `inference/mcmc/singlephu_mult_mcmc_synth_2.py`
 4. Plot the MCMC results:
-   - `inference/mcmc/plot_synth_case2.ipynb`
+   - `inference/plotting/plot_synth_case2.ipynb`
 
-The notebook `inference/mcmc/predictions_1phu_synth_case2_multiple.ipynb` contains additional plots for synthetic case 2.
+The notebook `inference/plotting/predictions_1phu_synth_case2_multiple.ipynb` contains additional plots for synthetic case 2.
 
 #### Real Toronto data
 
@@ -98,7 +98,7 @@ The notebook `inference/mcmc/predictions_1phu_synth_case2_multiple.ipynb` contai
 3. Run MCMC inference:
    - adapt `inference/mcmc/singlephu_mult_mcmc.py` for the real Toronto data workflow.
 4. Plot the MCMC results:
-   - `inference/mcmc/plot_real_toronto.ipynb`
+   - `inference/plotting/plot_real_toronto.ipynb`
 
 Some MAP and prediction notebooks are retained for now as secondary or exploratory analysis files, but they are not part of the main reproduction workflow above.
 
