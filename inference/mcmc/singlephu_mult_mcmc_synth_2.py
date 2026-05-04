@@ -122,13 +122,13 @@ population_by_phu = np.genfromtxt(f'{PHU_path}/population_by_phu.csv', delimiter
 ####### CHANGE HERE #####################
 total = population_by_phu[29,1]
 
-# target_file1 = './toronto_synthetic_data_75.csv'
+# target_file1 = './synthetic_case1_data_75.csv'
 
 ####### CHANGE HERE #####################
 #### FOR LOADING YOUR SYNTHETIC DATA
 
 I_synthetic = np.zeros((len(t),N_city))
-# file = np.genfromtxt(f'{datapath}/toronto_synthetic_data_noise10.csv', delimiter=',')
+# file = np.genfromtxt(f'{datapath}/synthetic_case1_data_noise10.csv', delimiter=',')
 file = np.genfromtxt(f'{datapath}/synthetic_case2_data.dat', delimiter=',')
 I_synthetic[:,0] = file[tstart:tlim]
 
