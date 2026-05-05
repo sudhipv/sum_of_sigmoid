@@ -14,13 +14,10 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from scipy.integrate import trapezoid
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT))
-
 # import tmcmc_alpha
 # From opensource repo:
-from inference.mcmc.tmcmc_mod import pdfs
-from inference.mcmc.tmcmc_mod.tmcmc_mod import run_tmcmc
+from tmcmc_mod import pdfs
+from tmcmc_mod.tmcmc_mod import run_tmcmc
 
 np.random.seed(106)  # fixing the random seed
 
@@ -110,10 +107,11 @@ R = np.zeros((len(tmoh),N_city))
 D = np.zeros((len(tmoh),N_city))
 N = np.zeros((len(tmoh),N_city))
 
+ROOT = Path(__file__).resolve().parents[2]
 PHU_path = ROOT / 'PHU_Data'
-figpath = ROOT / 'examples' / 'output' / 'synth_case1' / 'mcmc'
+figpath = Path(r'/Users/sudhipv/documents/sum_of_sigmoid/examples/figs') / 'mcmc' / 'synth_case1'
 data_in = ROOT / 'data' / 'in'
-data_out = ROOT / 'examples' / 'output' / 'synth_case1' / 'data'
+data_out = Path(r'/Users/sudhipv/documents/sum_of_sigmoid/examples/data/synth_case1')
 figpath.mkdir(parents=True, exist_ok=True)
 data_out.mkdir(parents=True, exist_ok=True)
 Data = np.zeros([365,4])

@@ -14,19 +14,13 @@ conda activate sumsigmoid
 pip install -r requirements.txt
 ```
 
-Run a minimal smoke test:
+Run the synthetic case 1 quickstart workflow:
 
 ```bash
 python examples/quickstart.py
 ```
 
-Run the synthetic case 1 MCMC example:
-
-```bash
-python examples/singlephu_mcmc_example.py
-```
-
-This example uses the same synthetic case 1 MCMC code as `inference/mcmc/singlephu_mult_mcmc_synth_1.py`, but writes generated samples and plots under `examples/output/synth_case1/`.
+The quickstart runs the existing synthetic case 1 MLE notebook, MCMC script, and plotting notebook. Generated figures are written under `examples/figs/`, MCMC output files under `examples/data/synth_case1/`, and executed notebook copies under `examples/notebooks/`.
 
 The MCMC scripts use local multiprocessing by default:
 
@@ -86,7 +80,7 @@ Manual tuning is optional, but recommended before MLE and MCMC because it gives 
 4. Plot the MCMC results:
    - `inference/plotting/plot_synth_case1.ipynb`
 
-For a self-contained reviewer example, run `examples/singlephu_mcmc_example.py`.
+For a self-contained reviewer example, run `examples/quickstart.py`.
 
 #### Synthetic data case 2
 
