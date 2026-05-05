@@ -1,18 +1,7 @@
-"""Run the synthetic case 1 example workflow.
-
-This wrapper runs the existing case 1 files in order:
-
-1. MLE notebook: inference/mle/1phu_synthetic_MLE.ipynb
-2. MCMC script: inference/mcmc/singlephu_mult_mcmc_synth_1.py
-3. Plotting notebook: inference/plotting/plot_synth_case1.ipynb
-
-Generated figures are written under examples/figs/.
-"""
+"""Run the synthetic case 1 MCMC and plotting workflow."""
 
 from __future__ import annotations
 
-import argparse
-import json
 import os
 import shutil
 import subprocess
@@ -25,12 +14,11 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 PHU_PATH = ROOT / "PHU_Data"
 DATA_IN = ROOT / "data" / "in"
-EXAMPLE_DIR = ROOT / "examples"
-EXAMPLE_FIGS = EXAMPLE_DIR / "figs"
-EXAMPLE_DATA = EXAMPLE_DIR / "data" / "synth_case1"
-EXAMPLE_NOTEBOOKS = EXAMPLE_DIR / "notebooks"
-EXAMPLE_WORKFLOW = EXAMPLE_DIR / "workflow"
-MPLCONFIGDIR = EXAMPLE_DIR / ".matplotlib"
+MPLCONFIGDIR = ROOT / "examples" / ".matplotlib"
+
+MCMC_SCRIPT = ROOT / "inference" / "mcmc" / "singlephu_mult_mcmc_synth_1.py"
+PLOTTING_NOTEBOOK = ROOT / "inference" / "plotting" / "plot_synth_case1.ipynb"
+EXECUTED_NOTEBOOK_DIR = ROOT / "examples" / "notebooks"
 
 
 def run_command(cmd: list[str], env: dict[str, str], label: str) -> None:
@@ -39,14 +27,14 @@ def run_command(cmd: list[str], env: dict[str, str], label: str) -> None:
     subprocess.run(cmd, cwd=ROOT, env=env, check=True)
 
 
-def run_notebook(path: Path, output_name: str, env: dict[str, str], label: str) -> None:
+def run_notebook(path: Path, env: dict[str, str]) -> None:
     if shutil.which("jupyter") is None:
         raise RuntimeError(
-            "Running the quickstart notebooks requires Jupyter/nbconvert. "
+            "Running the plotting notebook requires Jupyter/nbconvert. "
             "Install it in the active environment, then rerun this script."
         )
 
-    EXAMPLE_NOTEBOOKS.mkdir(parents=True, exist_ok=True)
+    EXECUTED_NOTEBOOK_DIR.mkdir(parents=True, exist_ok=True)
     run_command(
         [
             "jupyter",
@@ -56,55 +44,14 @@ def run_notebook(path: Path, output_name: str, env: dict[str, str], label: str) 
             "--execute",
             str(path),
             "--output",
-            output_name,
+            "plot_synth_case1_executed.ipynb",
             "--output-dir",
-            str(EXAMPLE_NOTEBOOKS),
+            str(EXECUTED_NOTEBOOK_DIR),
             "--ExecutePreprocessor.timeout=-1",
         ],
         env,
-        label,
+        "Run synthetic case 1 plotting notebook",
     )
-
-
-def patch_notebook(source: Path, target: Path) -> None:
-    nb = json.loads(source.read_text())
-    replacements = {
-        'data_out = ROOT / "data" / "out"\n': f'data_out = Path(r"{EXAMPLE_DATA}")\n',
-        'figpath = ROOT / "figs"\n': f'figpath = Path(r"{EXAMPLE_FIGS}")\n',
-        'figpath = ROOT / "figs" / "predictions" / "test"\n': f'figpath = Path(r"{EXAMPLE_FIGS}") / "predictions" / "test"\n',
-    }
-    for cell in nb.get("cells", []):
-        source_lines = cell.get("source")
-        if not isinstance(source_lines, list):
-            continue
-        cell["source"] = [replacements.get(line, line) for line in source_lines]
-    target.write_text(json.dumps(nb, indent=1) + "\n")
-
-
-def patch_mcmc_script(source: Path, target: Path) -> None:
-    text = source.read_text()
-    text = text.replace(
-        "figpath = ROOT / 'figs' / 'mcmc' / 'synth_case1'",
-        f"figpath = Path(r'{EXAMPLE_FIGS}') / 'mcmc' / 'synth_case1'",
-    )
-    text = text.replace(
-        "data_out = ROOT / 'data' / 'out'",
-        f"data_out = Path(r'{EXAMPLE_DATA}')",
-    )
-    target.write_text(text)
-
-
-def prepare_example_workflow() -> dict[str, Path]:
-    EXAMPLE_WORKFLOW.mkdir(parents=True, exist_ok=True)
-    paths = {
-        "mle": EXAMPLE_WORKFLOW / "1phu_synthetic_MLE.ipynb",
-        "mcmc": EXAMPLE_WORKFLOW / "singlephu_mult_mcmc_synth_1.py",
-        "plot": EXAMPLE_WORKFLOW / "plot_synth_case1.ipynb",
-    }
-    patch_notebook(ROOT / "inference" / "mle" / "1phu_synthetic_MLE.ipynb", paths["mle"])
-    patch_mcmc_script(ROOT / "inference" / "mcmc" / "singlephu_mult_mcmc_synth_1.py", paths["mcmc"])
-    patch_notebook(ROOT / "inference" / "plotting" / "plot_synth_case1.ipynb", paths["plot"])
-    return paths
 
 
 def smoke_check() -> None:
@@ -120,53 +67,23 @@ def smoke_check() -> None:
 
 def build_env() -> dict[str, str]:
     env = os.environ.copy()
+    MPLCONFIGDIR.mkdir(parents=True, exist_ok=True)
     env["MPLCONFIGDIR"] = str(MPLCONFIGDIR)
     return env
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--skip-mle", action="store_true", help="Skip the MLE notebook.")
-    parser.add_argument("--skip-mcmc", action="store_true", help="Skip the MCMC script.")
-    parser.add_argument("--skip-plot", action="store_true", help="Skip the plotting notebook.")
-    args = parser.parse_args()
-
-    EXAMPLE_FIGS.mkdir(parents=True, exist_ok=True)
-    EXAMPLE_DATA.mkdir(parents=True, exist_ok=True)
-    MPLCONFIGDIR.mkdir(parents=True, exist_ok=True)
-
     env = build_env()
     smoke_check()
-    workflow_paths = prepare_example_workflow()
 
-    if not args.skip_mle:
-        run_notebook(
-            workflow_paths["mle"],
-            "1phu_synthetic_MLE_executed.ipynb",
-            env,
-            "Run synthetic case 1 MLE notebook",
-        )
-
-    if not args.skip_mcmc:
-        run_command(
-            [sys.executable, str(workflow_paths["mcmc"])],
-            env,
-            "Run synthetic case 1 MCMC script",
-        )
-
-    if not args.skip_plot:
-        run_notebook(
-            workflow_paths["plot"],
-            "plot_synth_case1_executed.ipynb",
-            env,
-            "Run synthetic case 1 plotting notebook",
-        )
+    run_command([sys.executable, str(MCMC_SCRIPT)], env, "Run synthetic case 1 MCMC script")
+    run_notebook(PLOTTING_NOTEBOOK, env)
 
     print("\nQuickstart complete.")
-    print(f"Figures: {EXAMPLE_FIGS}")
-    print(f"MCMC data: {EXAMPLE_DATA}")
-    print(f"Executed notebooks: {EXAMPLE_NOTEBOOKS}")
-    print(f"Workflow copies: {EXAMPLE_WORKFLOW}")
+    print(f"MCMC outputs: {ROOT / 'data' / 'out'}")
+    print(f"MCMC diagnostic figures: {ROOT / 'figs' / 'mcmc' / 'synth_case1'}")
+    print(f"Prediction figures: {ROOT / 'figs' / 'predictions' / 'test'}")
+    print(f"Executed plotting notebook: {EXECUTED_NOTEBOOK_DIR}")
 
 
 if __name__ == "__main__":

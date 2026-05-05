@@ -20,7 +20,7 @@ Run the synthetic case 1 quickstart workflow:
 python examples/quickstart.py
 ```
 
-The quickstart runs the existing synthetic case 1 MLE notebook, MCMC script, and plotting notebook. Generated figures are written under `examples/figs/`, MCMC output files under `examples/data/synth_case1/`, and executed notebook copies under `examples/notebooks/`.
+The quickstart runs the existing synthetic case 1 MCMC script and plotting notebook. MCMC outputs are written to `data/out/`, MCMC diagnostic figures to `figs/mcmc/synth_case1/`, prediction figures to `figs/predictions/test/`, and the executed plotting notebook copy to `examples/notebooks/`.
 
 The MCMC scripts use local multiprocessing by default:
 
