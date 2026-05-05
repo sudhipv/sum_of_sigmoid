@@ -103,8 +103,10 @@ N = np.zeros((len(tmoh),N_city))
 ROOT = Path(__file__).resolve().parents[2]
 PHU_path = ROOT / 'PHU_Data'
 figpath = ROOT / 'figs' / 'mcmc' / 'synth_initial_noise10_case2_190'
-datapath = ROOT / 'data'
+data_in = ROOT / 'data' / 'in'
+data_out = ROOT / 'data' / 'out'
 figpath.mkdir(parents=True, exist_ok=True)
+data_out.mkdir(parents=True, exist_ok=True)
 Data = np.zeros([365,4])
 
 target_file1 = f'{PHU_path}/30-Toronto.csv'
@@ -128,8 +130,8 @@ total = population_by_phu[29,1]
 #### FOR LOADING YOUR SYNTHETIC DATA
 
 I_synthetic = np.zeros((len(t),N_city))
-# file = np.genfromtxt(f'{datapath}/synthetic_case1_data_noise10.csv', delimiter=',')
-file = np.genfromtxt(f'{datapath}/synthetic_case2_data.dat', delimiter=',')
+# file = np.genfromtxt(data_in / 'synthetic_case1_data.csv', delimiter=',')
+file = np.genfromtxt(data_in / 'synthetic_case2_data.dat', delimiter=',')
 I_synthetic[:,0] = file[tstart:tlim]
 
 
@@ -264,19 +266,19 @@ if __name__ == '__main__': #the main part of the program.
     import time
     start = time.time()
 
-    Xsmp,Chain,_,comm = run_tmcmc(Nsmp,all_params,logposterior,parallel_processing,f'{datapath}/stat-file-synth_case2_190.txt')
+    Xsmp,Chain,_,comm = run_tmcmc(Nsmp,all_params,logposterior,parallel_processing,str(data_out / 'stat-file-synth_case2_190.txt'))
 
 ##### IF YOU WANT TO LOAD PREVIOUSLY GENERATED SAMPLES 
-    # Xsmp = np.loadtxt(f'{datapath}/muVec_synthetic_case2.dat')
-    # Chain = np.loadtxt(f'{datapath}/muVec_long_synthetic_case2.dat')
+    # Xsmp = np.loadtxt(data_out / 'muVec_synth_case2_190.dat')
+    # Chain = np.loadtxt(data_out / 'muVec_long_synth_case2_190.dat')
 
 
     end = time.time()
     print(end - start)
 
     Xsmp = Xsmp.T
-    np.savetxt(f'{datapath}/muVec_synth_case2_190.dat',Xsmp)
-    np.savetxt(f'{datapath}/muVec_long_synth_case2_190.dat',Chain)
+    np.savetxt(data_out / 'muVec_synth_case2_190.dat',Xsmp)
+    np.savetxt(data_out / 'muVec_long_synth_case2_190.dat',Chain)
 
     mpl.rcParams.update({'font.size':14})
     for ii in range(0,Npar):

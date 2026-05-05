@@ -14,10 +14,13 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from scipy.integrate import trapezoid
 
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
 # import tmcmc_alpha
 # From opensource repo:
-from tmcmc_mod import pdfs
-from tmcmc_mod.tmcmc_mod import run_tmcmc
+from inference.mcmc.tmcmc_mod import pdfs
+from inference.mcmc.tmcmc_mod.tmcmc_mod import run_tmcmc
 
 np.random.seed(106)  # fixing the random seed
 
@@ -42,7 +45,7 @@ phiTrue = np.zeros([Npar])
 
 # ### FOR CASES WITH TRUE PARAMETER VALUES - SYNTHETIC DATA  ###############
 # ## True parameters of your model
-# phiTrue = [ 0.15, -0.1, 0.05,  -0.07, 0.035, 0.08, 430, 430] 
+phiTrue = [ 0.15, -0.1, 0.05,  -0.07, 0.035, 0.08, 430, 430] 
 
 
 ### MLE OF YOUR PARAMETERS WHICH WILL BE USED AS PRIORS FOR TMCMC. UNIFORM PRIORS WITHIN THE BOUNDS.
@@ -75,7 +78,7 @@ for jj in range(0,Npar):
 ####### CHANGE HERE #####################
 dt = 0.1
 tstart = 0
-tlim = 200
+tlim = 160
 t = np.arange(tstart, tlim, 1)
 
 tmoh = np.arange(0, tlim, dt)
@@ -107,11 +110,12 @@ R = np.zeros((len(tmoh),N_city))
 D = np.zeros((len(tmoh),N_city))
 N = np.zeros((len(tmoh),N_city))
 
-ROOT = Path(__file__).resolve().parents[2]
 PHU_path = ROOT / 'PHU_Data'
-figpath = ROOT / 'figs' / 'mcmc' / 'synth_initial_noise10_case2'
-datapath = ROOT / 'data'
+figpath = ROOT / 'examples' / 'output' / 'synth_case1' / 'mcmc'
+data_in = ROOT / 'data' / 'in'
+data_out = ROOT / 'examples' / 'output' / 'synth_case1' / 'data'
 figpath.mkdir(parents=True, exist_ok=True)
+data_out.mkdir(parents=True, exist_ok=True)
 Data = np.zeros([365,4])
 
 target_file1 = f'{PHU_path}/30-Toronto.csv'
@@ -135,8 +139,7 @@ total = population_by_phu[29,1]
 #### FOR LOADING YOUR SYNTHETIC DATA
 
 I_synthetic = np.zeros((len(t),N_city))
-# file = np.genfromtxt(f'{datapath}/synthetic_case1_data_noise10.csv', delimiter=',')
-file = np.genfromtxt(f'{datapath}/synthetic_case2_data.dat', delimiter=',')
+file = np.genfromtxt(data_in / 'synthetic_case1_data.csv', delimiter=',')
 I_synthetic[:,0] = file[tstart:tlim]
 
 #### OBSERVED MOH DATA
@@ -146,21 +149,19 @@ I_synthetic[:,0] = file[tstart:tlim]
 
 t1 =  20
 
-t2 =  40
+t2 =  35
 
 t3 = 60
 
-t4 = 90
+t4 = 80
 
-t5 = 120
-
-t6 = 140
+t5 = 140
 
 def loglikfun(param):
 
     ###### CHANGE HERE ###########
-    E[0,0] = param[7]
-    I[0,0] = param[8]
+    E[0,0] = param[6]
+    I[0,0] = param[7]
     N[0,0] = total
 
 
@@ -177,7 +178,7 @@ def loglikfun(param):
     beta_i[:,0] = param[0]  + param[1]/(1 + np.exp((t1-tmoh))) \
         +  param[2]/(1 + np.exp((t2-tmoh))) + param[3]/(1 + np.exp((t3-tmoh))) \
         + param[4]/(1 + np.exp((t4-tmoh)))  + param[5]/(1 + np.exp((t5-tmoh)))  \
-        + param[6]/(1 + np.exp((t6-tmoh))) 
+        # + param[6]/(1 + np.exp((t6-tmoh))) 
         # + param[7]/(1 + np.exp((t7-tmoh)))
 
     # + parameter_vector_in[8]/(1 + np.exp((t8-tmoh)))
@@ -275,19 +276,19 @@ if __name__ == '__main__': #the main part of the program.
     import time
     start = time.time()
 
-    Xsmp,Chain,_,comm = run_tmcmc(Nsmp,all_params,logposterior,parallel_processing,f'{datapath}/stat-file-tmcmc_synth_case2_noise10_initial_8param.txt')
+    Xsmp,Chain,_,comm = run_tmcmc(Nsmp,all_params,logposterior,parallel_processing,str(data_out / 'stat-file-tmcmc_synth_case1.txt'))
 
 ##### IF YOU WANT TO LOAD PREVIOUSLY GENERATED SAMPLES 
-    # Xsmp = np.loadtxt(f'{datapath}/muVec_synthetic_case2.dat')
-    # Chain = np.loadtxt(f'{datapath}/muVec_long_synthetic_case2.dat')
+    # Xsmp = np.loadtxt(data_out / 'muVec_synth_case1.dat')
+    # Chain = np.loadtxt(data_out / 'muVec_long_synth_case1.dat')
 
 
     end = time.time()
     print(end - start)
 
     Xsmp = Xsmp.T
-    np.savetxt(f'{datapath}/muVec_synth_case2_noise10_initial_8param.dat',Xsmp)
-    np.savetxt(f'{datapath}/muVec_long_synth_case2_noise10_initial_8param.dat',Chain)
+    np.savetxt(data_out / 'muVec_synth_case1.dat',Xsmp)
+    np.savetxt(data_out / 'muVec_long_synth_case1.dat',Chain)
 
     mpl.rcParams.update({'font.size':14})
     for ii in range(0,Npar):
@@ -295,12 +296,8 @@ if __name__ == '__main__': #the main part of the program.
         plt.plot((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar),Chain[ii::Npar],'b.',markersize=2)
         #plt.plot(Xsmp[ii,:],Chain)
 
-        ### CHANGE HERE ######
-        ### Uncomment for Synthetic Data ######
-        # plt.plot([0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar))[-1])],[phiTrue[ii],phiTrue[ii]],'r--',label='True')
+        plt.plot([0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar))[-1])],[phiTrue[ii],phiTrue[ii]],'r--',label='True')
 
-
-        # plt.legend(loc='best')
         myXTicks = np.arange(0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar))[-1])+1,2)
         plt.xticks(myXTicks)
         plt.xlim([0,math.ceil(((1/(Nsmp*Npar))*np.arange(0,len(Chain),Npar)+0.0001)[-1])])
@@ -328,27 +325,19 @@ if __name__ == '__main__': #the main part of the program.
         pdfMean = np.mean(statSmp[j,:],0)
         pdfCOV = abs(pdfStd/pdfMean)
 
-        ### FOR REAL DATA
-        ax1.axvline(pdfMAP[j],c='r',linestyle='--', label='MAP')
-        print('MAP estimate for '+mylabel[j]+': '+str(pdfMAP[j]))
 
         print('COV for '+mylabel[j]+': '+str(pdfCOV))
         myYlim = [0.0, 1.1*pdfmax]
         if j ==0:
-             ### CHANGE HERE ######
-             ### Synthetic Data - Uncomment ######
             ax1.legend(loc='upper left', numpoints = 1)
         print(myYlim)
         print('=======================')
-        ### CHANGE HERE ######
-        ### Synthetic Data - Uncomment ######
-        # ax1.plot([phiTrue[j],phiTrue[j]],myYlim,'--r')
+        ax1.plot([phiTrue[j],phiTrue[j]],myYlim,'--r')
         ax1.set_ylabel('pdf')
         ax1.set_xlabel(mylabel[j])
-        #plt.xlim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
+        plt.xlim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
         ax1.set_ylim(myYlim)
         ax1.set_xlim([xlow,xup])
-        # plt.xlim([X_low[j],X_up[j]])
         ax1.set_yticks([])
         plt.grid(True)
         ax2 = ax1.twinx()
@@ -369,19 +358,14 @@ if __name__ == '__main__': #the main part of the program.
                 plt.figure(Npar*i+j,figsize=(3.5, 2.8))
                 plt.plot(Xsmp[i,:],Xsmp[j,:],'b.',markersize = msize)
 
-                ### CHANGE HERE ######
-                ### Synthetic Data - Uncomment below lines ######
-                # plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
-                # plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
-                # plt.xlim([phiTrue[i]-0.02,phiTrue[i]+0.02])
-                # plt.ylim([phiTrue[j]-0.02,phiTrue[j]+0.02])
+                plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
+                plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
+
+                plt.xlim([np.min(statSmp[i,:]),np.max(statSmp[i,:])])
+                plt.ylim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
 
                 plt.xlabel(mylabel[i])
                 plt.ylabel(mylabel[j])
-
-                ### REAL DATA ###
-                plt.xlim([np.min(statSmp[i,:]),np.max(statSmp[i,:])])
-                plt.ylim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
 
                 plt.grid(True)
                 plt.savefig(f'{figpath}/Jsmpls_'+str(i+1)+str(j+1)+'.eps',bbox_inches='tight')
@@ -408,25 +392,15 @@ if __name__ == '__main__': #the main part of the program.
                 ax = fig.gca()
                 # Contourf plot
                 cfset = ax.contourf(xx, yy, f, 15,cmap='Blues')
-                ## Or kernel density estimate plot instead of the contourf plot
-                #ax.imshow(np.rot90(f), cmap='Blues', extent=[xmin, xmax, ymin, ymax])
-                # Contour plot
-                #cset = ax.contour(xx, yy, f, colors='k')
-                # Label plot
-                #ax.clabel(cset, inline=1, fontsize=10)
+    
+                plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
+                plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
 
-                ### CHANGE HERE ######
-                ### Synthetic Data - Uncomment below line ######
-                # plt.plot([X_low[i],X_up[i]],[phiTrue[j],phiTrue[j]],'r--')
-                # plt.plot([phiTrue[i],phiTrue[i]],[X_low[j],X_up[j]],'r--')
-                # plt.xlim([phiTrue[i]-0.02,phiTrue[i]+0.02])
-                # plt.ylim([phiTrue[j]-0.02,phiTrue[j]+0.02])
+                plt.xlim([np.min(statSmp[i,:]),np.max(statSmp[i,:])])
+                plt.ylim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
 
                 plt.xlabel(mylabel[i])
                 plt.ylabel(mylabel[j])
-                ### REAL DATA ###
-                plt.xlim([np.min(statSmp[i,:]),np.max(statSmp[i,:])])
-                plt.ylim([np.min(statSmp[j,:]),np.max(statSmp[j,:])])
 
                 plt.grid(True)
                 plt.savefig(f'{figpath}/jpdf_'+str(i+1)+str(j+1)+'.eps',bbox_inches='tight')

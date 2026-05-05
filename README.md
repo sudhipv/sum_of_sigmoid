@@ -20,6 +20,14 @@ Run a minimal smoke test:
 python examples/quickstart.py
 ```
 
+Run the synthetic case 1 MCMC example:
+
+```bash
+python examples/singlephu_mcmc_example.py
+```
+
+This example uses the same synthetic case 1 MCMC code as `inference/mcmc/singlephu_mult_mcmc_synth_1.py`, but writes generated samples and plots under `examples/output/synth_case1/`.
+
 The MCMC scripts use local multiprocessing by default:
 
 ```python
@@ -37,7 +45,9 @@ parallel_processing = 'mpi'
 ### REPO STRUCTURE
 
 1. PHU_Data : Infection and population data for all the PHUs
-2. data : All the data generated from codes required to successfully run the MCMC and predictions
+2. data : Input and output data used by the workflows
+   - `data/in`: retained input data and reference truth files
+   - `data/out`: retained or generated MCMC samples and sampler log files
 3. figs : All the figures generated from different codes located here
 4. inference : main source code for manual tuning, mle and mcmc
 5. misc : Optional or exploratory files that are not part of the main reproduction workflow
@@ -54,7 +64,7 @@ The general workflow is:
 
 1. Generate or load the data set.
 2. Optionally use manual tuning to inspect the data, estimate inflection points, and identify parameter signs.
-3. Use maximum likelihood estimation (MLE) to refine parameter values.
+3. Optionally use maximum likelihood estimation (MLE) to refine parameter values. The MCMC scripts use broad uniform bounds, so MLE is not required for the example workflow.
 4. Run MCMC inference to estimate posterior parameter samples.
 5. Use the saved MCMC output files to plot posterior fits and compare against the truth or observed data.
 
@@ -68,18 +78,20 @@ Manual tuning is optional, but recommended before MLE and MCMC because it gives 
 #### Synthetic data case 1
 
 1. Generate the synthetic data:
-   - `inference/generate_synethtic_Mult.ipynb`
-2. Run MLE:
+   - `inference/manual_tuning/generate_synethtic_Mult.ipynb`
+2. Optionally run MLE:
    - `inference/mle/1phu_synthetic_MLE.ipynb`
 3. Run MCMC inference:
-   - `inference/mcmc/singlephu_mult_mcmc.py`
+   - `inference/mcmc/singlephu_mult_mcmc_synth_1.py`
 4. Plot the MCMC results:
    - `inference/plotting/plot_synth_case1.ipynb`
 
+For a self-contained reviewer example, run `examples/singlephu_mcmc_example.py`.
+
 #### Synthetic data case 2
 
-1. Load the synthetic case 2 data from `data/`.
-2. Run MLE:
+1. Load the synthetic case 2 data from `data/in/`.
+2. Optionally run MLE:
    - `inference/mle/1phu_MLE_synthetic_case2.ipynb`
 3. Run MCMC inference:
    - `inference/mcmc/singlephu_mult_mcmc_synth_2.py`
@@ -93,10 +105,10 @@ The notebook `inference/plotting/predictions_1phu_synth_case2_multiple.ipynb` co
 1. Inspect and manually tune the Toronto infection data:
    - `inference/manual_tuning/Infection_data_apr1-dec31.ipynb`
    - `inference/manual_tuning/manual_tune.ipynb`
-2. Run MLE:
+2. Optionally run MLE:
    - `inference/mle/1phu_real_MLE.ipynb`
 3. Run MCMC inference:
-   - adapt `inference/mcmc/singlephu_mult_mcmc.py` for the real Toronto data workflow.
+   - `inference/mcmc/singlephu_mult_mcmc_real.py`
 4. Plot the MCMC results:
    - `inference/plotting/plot_real_toronto.ipynb`
 

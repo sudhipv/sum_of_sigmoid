@@ -12,7 +12,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 PHU_PATH = ROOT / "PHU_Data"
-DATA_PATH = ROOT / "data"
+DATA_IN = ROOT / "data" / "in"
 
 sys.path.insert(0, str(ROOT))
 
@@ -22,8 +22,8 @@ from inference.mcmc.tmcmc_mod import pdfs
 def main():
     toronto_cases = np.genfromtxt(PHU_PATH / "30-Toronto.csv", delimiter=",")
     population_by_phu = np.genfromtxt(PHU_PATH / "population_by_phu.csv", delimiter=",")
-    synthetic_case1 = np.genfromtxt(DATA_PATH / "synthetic_case1_data_noise10.csv", delimiter=",")
-    synthetic_case2 = np.loadtxt(DATA_PATH / "synthetic_case2_data.dat")
+    synthetic_case1 = np.genfromtxt(DATA_IN / "synthetic_case1_data.csv", delimiter=",")
+    synthetic_case2 = np.loadtxt(DATA_IN / "synthetic_case2_data.dat")
 
     prior = pdfs.Uniform(lower=0.0, upper=0.2)
     prior_sample = prior.generate_rns(1)[0]
