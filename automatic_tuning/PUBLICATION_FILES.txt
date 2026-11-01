@@ -21,7 +21,9 @@ examples/data_case1.csv
 examples/data_case2.csv
 examples/data_toronto.csv
 examples/toronto.json
+fixtures/historical_living_model.py
 fixtures/saved_reference_cases.json
+fixtures/total_denominator_reference.json
 pyproject.toml
 requirements.txt
 run.py
@@ -48,5 +50,6 @@ tests/prepared_fixture.py
 tests/test_acceptance_policy.py
 tests/test_inputs.py
 tests/test_original_sampler.py
+tests/test_total_denominator.py
 tests/test_training_checks.py
 verify_examples.py

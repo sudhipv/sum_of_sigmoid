@@ -35,7 +35,9 @@
     "NLL": 899.0524518687273,
     "source_repository_relative": "reproduction/2026-10-28_case1_fixed11_two_sided_ML/result.json",
     "source_sha256": "aa5a868fa9f0c71073218ad89809d8d50676484e479423caf4ca34545509c067",
-    "diagnostic_only": true
+    "diagnostic_only": true,
+    "denominator": "living S+E+I+R",
+    "status": "historical diagnostic only; not the publication inference model"
   },
   {
     "case": "case2",
@@ -71,7 +73,9 @@
     "NLL": 861.2059506985091,
     "source_repository_relative": "reproduction/2026-10-31_case2_three_procedure_timing/preparation/legacy_joint_ML.json",
     "source_sha256": "538beef48ff131e4710262d8be00f1840b10740150ae175f249c0f22b2e7f80c",
-    "diagnostic_only": true
+    "diagnostic_only": true,
+    "denominator": "living S+E+I+R",
+    "status": "historical diagnostic only; not the publication inference model"
   },
   {
     "case": "toronto",
@@ -119,6 +123,8 @@
     "NLL": 846.1528567195487,
     "source_repository_relative": "reproduction/2026-10-29_toronto_automatic_timing_study/preparation/ML/all_candidate_joint.json",
     "source_sha256": "64ada1df811070b4d01a3c67e30ebb954d69a2c8b3739ba158e3759dec034301",
-    "diagnostic_only": true
+    "diagnostic_only": true,
+    "denominator": "living S+E+I+R",
+    "status": "historical diagnostic only; not the publication inference model"
   }
 ]

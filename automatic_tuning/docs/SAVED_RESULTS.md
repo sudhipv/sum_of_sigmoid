@@ -27,9 +27,10 @@ as these magnitude0.5 matched-procedure results. Archived original4000Toronto
 particles have incomplete generating provenance; they are not substituted for
 the documented historical reproduction or matched baselines.
 
-The new publication path uses the exact original sampler with the living
-denominator. **No sampling has been run through this new package.** Thus none
+The new publication path uses the exact original sampler with the subsequently
+approved total-population denominator S+E+I+R+D. **No sampling has been run through this new package.** Thus none
 of the existing corrected-worker results is evidence of an original-sampler
 publication run. The original total-denominator control is a separate scientific
-configuration; its success does not authorize changing the living default or
-establish that worker initialization caused another run's failure.
+configuration; its success does not establish that worker initialization caused
+another run's failure. The denominator update follows explicit author instruction.
+Historical living results above keep their original labels and parameters.

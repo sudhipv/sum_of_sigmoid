@@ -31,4 +31,7 @@ ESS; saved population files are not continuous independent mutation chains.
 The one controlled original-source Toronto total-denominator run reached the
 known good training region, but this does not prove that the corrected-worker
 initializer caused the earlier failure or validate duplicated worker streams.
-It also does not justify changing the living-denominator publication default.
+The publication denominator was subsequently changed to total population by
+explicit author instruction, not inferred from this single sampling outcome.
+No new sampling validates the updated publication path. Native CPU-count and
+start-method limitations remain; original initial worker states may duplicate.

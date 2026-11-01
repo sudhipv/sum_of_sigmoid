@@ -7,8 +7,9 @@ elsewhere; their results have not been relabeled or rerun.
 The primary pipeline is training-only feature detection -> identical-date merge
 -> frozen legacy consolidation -> joint ML -> signed Uniform prior configuration
 for optional TMCMC. ML jointly fits beta0, every amplitude, E0 and I0. The
-default transmission denominator is **living population S+E+I+R**. The separate
-total-population experiment is not a publication default or configuration option.
+approved final transmission denominator is **total population S+E+I+R+D**.
+The same shared forward model is used by ML, optional TMCMC and training plots.
+Historical living-denominator results remain unchanged and explicitly labeled.
 
 TMCMC uses `sumsigmoid/original/tmcmc_mod.py` and `pdfs.py` **byte-for-byte** from
 commit `e412562ac57cff503f0f6cc4c2bd9d63da04785b`. They contain no added worker
@@ -75,7 +76,11 @@ Model defaults: explicit Euler step 0.1 day, sigmoid width 1 day, Gaussian
 observation SD 0.1*I, and rates gamma_e=1/15, gamma_i=1/5, gamma_r=1/11,
 gamma_d=1/750 per day. Fixed rates are configurable assumptions; only the stated
 defaults were checked against saved results. Model.py documents the equations.
-S0=N0-E0-I0, R0=D0=0. Total beta is constrained >=-1e-12 on the training grid.
+S0=N0-E0-I0, R0=D0=0. At every Euler step the infection-flow denominator is
+S+E+I+R+D, which conserves N0 up to roundoff; population-based bounds are unchanged.
+Total beta is constrained >=-1e-12 on the training grid. New prepared configurations
+record `transmission_denominator`; historical preparations without the matching
+total-population label cannot be reused by the optional TMCMC entrypoint.
 
 ML supports: beta0 [1e-6,0.5], every amplitude [-0.5,0.5], E0/I0 [0,0.001*N0].
 Proposed TMCMC supports: beta0 [0,0.5], amplitudes [0,0.5] or [-0.5,0] according
@@ -127,8 +132,12 @@ python -B verify_examples.py
 
 Tests use deterministic records/vectors and intercept any full sampler call.
 The reference check reproduces 11 case-one, 10 case-two and 16 Toronto primary
-candidates and saved ML likelihood values without new fitting. The optional
-turn procedure remains separate. See [file guide](docs/FILE_GUIDE.md) and
+candidates without fitting. The verified Toronto **total-denominator** saved
+vector reproduces NLL846.152525378661 and its saved training trajectory;
+population conservation and ML/TMCMC-callback equivalence are checked. The old
+living-denominator NLLs are tested separately with an isolated historical
+snapshot, never used by the inference path. They are not expected to equal
+total-denominator NLLs. The optional turn procedure remains separate. See [file guide](docs/FILE_GUIDE.md) and
 [scientific method](docs/SCIENTIFIC_METHOD.md) for exact detector/ML thresholds.
 
 Primary outputs: `candidates.json`, full detection/consolidation audits,
@@ -139,6 +148,7 @@ Primary outputs: `candidates.json`, full detection/consolidation audits,
 
 Only `PUBLICATION_FILES.txt` belongs to this publication change. Parent history
 already contains tracked outputs; ignore rules do not remove them. Historical
-BIC/refinement, day-156 overrides, restricted priors and total-denominator runs
-remain separate. OpenAI Codex assistance is documented without an unverifiable
+BIC/refinement, day-156 overrides, restricted priors and earlier denominator
+comparison runs remain separate. Changing the publication denominator does not
+relabel historical results. OpenAI Codex assistance is documented without an unverifiable
 backend model identifier. Existing GPL-3.0 attribution and citation are retained.

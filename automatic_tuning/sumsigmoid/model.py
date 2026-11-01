@@ -3,7 +3,9 @@
     S'=-beta(E+I)S/N; E'=beta(E+I)S/N-(gamma_i+gamma_e)E
     I'=gamma_i E-(gamma_r+gamma_d)I; R'=gamma_e E+gamma_r I; D'=gamma_d I
 
-N=S+E+I+R excludes deaths, as in the preserved implementation. Rates and beta
+N=S+E+I+R+D includes deaths, per the approved final inference convention.
+All five compartments sum to the initial total population (up to roundoff).
+Rates and beta
 have units day^-1; states/data are persons. No posterior/prior term is in NLL.
 The arithmetic order follows the validated scalar likelihood exactly.
 """
@@ -11,6 +13,7 @@ import math
 import numpy as np
 
 BETA_TOLERANCE=1e-12
+DENOMINATOR='total S+E+I+R+D'
 
 class Model:
     def __init__(self,observations,locations,config):
@@ -44,7 +47,7 @@ class Model:
                 force=float(beta[k-1])*(e+i)/n
                 sn=s+dt*(-force*s);en=e+dt*(force*s-(GI+GE)*e)
                 inn=i+dt*(GI*e-(GR+GD)*i);rn=r+dt*(GE*e+GR*i);dn=d+dt*(GD*i)
-                s,e,i,r,d=sn,en,inn,rn,dn;n=s+e+i+r
+                s,e,i,r,d=sn,en,inn,rn,dn;n=s+e+i+r+d
                 if keep_states:states[k]=[s,e,i,r,d]
                 if k%every==0:
                     if i<=0:return -np.inf,states

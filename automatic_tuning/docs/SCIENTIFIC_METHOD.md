@@ -49,8 +49,13 @@ priors. The historical experiment folders remain untouched outside the package.
 ## Model, units and likelihood
 
 Beta is `A0 + sum(Aj/(1+exp((location_j-t)/width)))`, with width1 day.
-The population argument is in persons. The compartment equations and living
-population update are documented in `model.py`. Initial states are
+The population argument is in persons. The approved final model uses
+`N(t)=S+E+I+R+D` in the infection-flow denominator at every Euler step. The
+compartment equations conserve this total at its initial value N0; including D
+does not change any other population-based bound or initial condition. The
+verified Toronto reference permits at most1e-6person conservation error over
+the training grid. The shared `model.py` serves ML, TMCMC and training plots.
+Initial states are
 `S0=population-E0-I0`, `R0=D0=0`; E0/I0 are inferred parameters.
 
 The explicit Euler grid has step0.1 day and extends through the last training
@@ -114,6 +119,14 @@ true logL = raw engine value + sum(-log(upper-lower)). Original raw records are
 kept. All final likelihoods and the ensemble training fit are checked externally.
 The original short mutation cap and tempering-only stopping rule are unchanged;
 external checks never declare convergence or silently launch a repeat.
+
+The approved denominator update changes only the infection-flow population
+sum; all rates, widths, noise, likelihood indexing/normalization, Euler step,
+bounds, beta support, detection, optimizer and acceptance settings are preserved.
+Old living-population checks use only `fixtures/historical_living_model.py`,
+an isolated historical snapshot outside the inference path. Its NLLs are not
+reference values for the final model. Prepared-result metadata prevents mixing
+these conventions in optional inference.
 
 No new TMCMC, forecast or sensitivity experiment was performed for packaging.
 Historical results retain their actual original/corrected sampler provenance.

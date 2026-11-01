@@ -10,6 +10,7 @@ import time
 import numpy as np
 from .io import read, save, sha
 from .sampler_provenance import load_original
+from .model import DENOMINATOR
 
 
 def inspect_prepared(prepared):
@@ -18,6 +19,8 @@ def inspect_prepared(prepared):
     if read(folder / "status.json")["status"] != "accepted":
         raise RuntimeError("ML preparation unresolved; TMCMC is blocked")
     config = read(folder / "configuration.json")
+    if config.get('transmission_denominator') != DENOMINATOR:
+        raise RuntimeError('Prepared configuration must explicitly record the total-population denominator; historical preparation is not interchangeable')
     priors = read(folder / "TMCMC_priors.json")
     ml = read(folder / "ML_result.json")
     if not ml["accepted"]:
@@ -59,7 +62,7 @@ def inspect_prepared(prepared):
         prior_classes=[type(p).__module__ + "." + type(p).__name__ for p in pars],
         original_source=source, callback="sumsigmoid.target.logtarget",
         likelihood_convention="normalized likelihood only plus hard beta admissibility",
-        denominator="living S+E+I+R", verified_ML_NLL=actual_nll,
+        denominator=DENOMINATOR, verified_ML_NLL=actual_nll,
         initialization="fresh configured base Uniforms; no ML/posterior/checkpoint injection",
         worker_rng_policy="original behavior; shared configured seed on CLI spawn import; no distinct-stream initializer",
         no_forecasts=True, training_review_required=True,

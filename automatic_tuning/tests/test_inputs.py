@@ -36,6 +36,6 @@ class InputTests(unittest.TestCase):
             plan=json.loads(result.stdout)
             self.assertEqual(plan['particles'],4000)
             self.assertEqual(plan['verified_ML_NLL'],ml['NLL'])
-            self.assertEqual(plan['denominator'],'living S+E+I+R')
+            self.assertEqual(plan['denominator'],'total S+E+I+R+D')
             self.assertIsNone(plan['pool_initializer'])
             self.assertFalse((path/'tmcmc').exists())

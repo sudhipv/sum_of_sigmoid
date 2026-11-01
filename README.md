@@ -6,8 +6,8 @@ For the frozen automatic detection, consolidation and joint ML workflow, start
 with [automatic_tuning/README.md](automatic_tuning/README.md). It includes complete
 synthetic-case-one, case-two and Toronto examples. Preparation runs ML only;
 optional TMCMC uses the exact original sampler from commit
-`e412562ac57cff503f0f6cc4c2bd9d63da04785b`. The publication default remains the
-living-population denominator `S + E + I + R`. Human review is pending.
+`e412562ac57cff503f0f6cc4c2bd9d63da04785b`. The approved final inference model uses the
+total-population denominator `S + E + I + R + D` in ML and optional TMCMC. Human review is pending.
 
 ## Table of Contents
 

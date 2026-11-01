@@ -2,12 +2,12 @@
 from pathlib import Path
 import numpy as np
 from sumsigmoid.config import MODEL_DEFAULTS, BOUND_DEFAULTS
-from sumsigmoid.model import Model
+from sumsigmoid.model import Model, DENOMINATOR
 from sumsigmoid.io import save
 
 def make(folder):
     folder = Path(folder)
-    config = dict(model=MODEL_DEFAULTS,bounds=BOUND_DEFAULTS,population=2794356,
+    config = dict(model=MODEL_DEFAULTS,bounds=BOUND_DEFAULTS,population=2794356,transmission_denominator=DENOMINATOR,
                   tmcmc=dict(particles=4000,seed=106,workers=8,enabled=False))
     y = np.array([100.,110.]);point=[.1,-.04,120.,100.];model=Model(y,[1],config)
     priors=dict(locations=[1],parameter_names=model.names,lower=[0,-.5,0,0],upper=[.5,0,2794.356,2794.356])

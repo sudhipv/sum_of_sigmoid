@@ -10,14 +10,17 @@ worker-initializer patch is applied. Explanations are outside those two files.
 
 The frozen detector, legacy consolidation and optional turn consolidation derive
 from `reproduction/2026-10-31_case2_three_procedure_timing/src/` and are copied
-byte-for-byte. Joint likelihood/model and ML retain the verified arithmetic,
+byte-for-byte. Joint likelihood/model and ML retain the verified arithmetic (with the
+subsequently approved addition of D to the infection-flow denominator),
 bounds, SLSQP settings and fixed NLL/160 divisor. ML amplitude signs are free;
 E0/I0 remain jointly free. The existing four-start/12-attempt acceptance rule is
 retained from `2026-10-31_case2_day156_accepted_completion` and the prior review
 package; JSON null serialization of nonfinite failed diagnostics is I/O only.
 The old `review_package/` and all research artifacts stay local and unchanged.
 
-The default is the living denominator S+E+I+R. The total-denominator experiment,
+The subsequent approved final inference convention is total population
+S+E+I+R+D, validated against the saved Toronto total-denominator preparation.
+The original living model is preserved only as a historical verification fixture.
 BIC, coordinate searches, provisional-day overrides and ML-centered restricted
 priors are not defaults. SAVED_RESULTS.md labels main historical runs by their
 actual engine, worker policy, denominator, support and configuration. Switching

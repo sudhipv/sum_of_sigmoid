@@ -7,6 +7,7 @@ from .io import save,read,sha,load_training,plain
 from .candidates import prepare as propose
 from .optimization import Problem,one_start,OPTIONS
 from .acceptance import run_batches
+from .model import DENOMINATOR
 
 def run(config_path,enable_tmcmc=False,output_override=None):
     """Prepare one training prefix and jointly fit all K+3 parameters.
@@ -18,6 +19,7 @@ def run(config_path,enable_tmcmc=False,output_override=None):
     if output_override is not None:
         folder=Path(output_override).resolve();config['output_directory']=str(folder)
     if folder.exists():raise FileExistsError('Output directory already exists;choose a new path to preserve results')
+    config['transmission_denominator']=DENOMINATOR
     folder.mkdir(parents=True);save(folder/'configuration.json',config)
     started=time.perf_counter()
     try:
@@ -74,7 +76,7 @@ def run(config_path,enable_tmcmc=False,output_override=None):
         from .sampler_provenance import load_original
         _,_,source=load_original()
         save(folder/'TMCMC_configuration.json',dict(sampler_source=source,
-            settings=config['tmcmc'],model=config['model'],denominator='living S+E+I+R',
+            settings=config['tmcmc'],model=config['model'],denominator=DENOMINATOR,
             population=config['population'],parameter_names=problem.names,locations=locations,
             lower=lower,upper=upper,free_E0_I0=True,beta_admissibility_tolerance=1e-12,
             original_parallel_rng_can_duplicate=True,no_sampling_during_preparation=True))
@@ -105,7 +107,9 @@ def output_paths(folder,has_fit,has_priors):
 def save_fit(folder,problem,p,y,locations):
     ll,states=problem.model.evaluate(p,keep_states=True);beta=problem.beta(p);every=round(1/problem.model.settings['dt'])
     rmse=float(np.sqrt(np.mean((states[::every,2]-y)**2)))
-    save(folder/'training_metrics.json',dict(NLL=-ll,RMSE=rmse,beta_minimum=float(beta.min()),
+    save(folder/'training_metrics.json',dict(NLL=-ll,RMSE=rmse,transmission_denominator=DENOMINATOR,
+        maximum_population_error_persons=float(np.max(np.abs(states.sum(axis=1)-problem.model.config['population']))),
+        beta_minimum=float(beta.min()),
         minimum_compartment=float(states.min()),parameter_order=problem.names))
     np.savez_compressed(folder/'ML_training_trajectory.npz',time=problem.model.grid,states=states,beta=beta,parameters=p)
     with (folder/'fitted_values.csv').open('w',newline='') as stream:
