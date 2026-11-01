@@ -1,0 +1,80 @@
+{
+  "original_sampler": {
+    "tmcmc_mod.py": {
+      "commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+      "repository_path": "inference/mcmc/tmcmc_mod/tmcmc_mod.py",
+      "git_blob": "18342107a4d4b4d0e6f975f0b52417f9c19052e3",
+      "bytes": 16064,
+      "sha256": "d1f4c251c8fcb9f1797604bb84ce4cf6826c0bd3a73336a9e85a461832a0e0e2",
+      "package_path": "sumsigmoid/original/tmcmc_mod.py"
+    },
+    "pdfs.py": {
+      "commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+      "repository_path": "inference/mcmc/tmcmc_mod/pdfs.py",
+      "git_blob": "542ff85259d7ec26d955ebd6105cc14caddd4883",
+      "bytes": 4457,
+      "sha256": "436163455a6f294f03339b45629d8f012511e4ba04c45467bddbd4d76bf86b6c",
+      "package_path": "sumsigmoid/original/pdfs.py"
+    }
+  },
+  "frozen_components": [
+    {
+      "package_file": "sumsigmoid/frozen_detector.py",
+      "source": "reproduction/2026-10-31_case2_three_procedure_timing/src/detector.py",
+      "sha256": "e6a1619add94090a09c33182521fc01962fe23d6c7738a7c5ba0e838f17a7358",
+      "adaptation": "none;byte-identical"
+    },
+    {
+      "package_file": "sumsigmoid/legacy_consolidation.py",
+      "source": "reproduction/2026-10-31_case2_three_procedure_timing/src/legacy_consolidation.py",
+      "sha256": "9651b041478b3de997cef8aba1435245c8208c57dd696b1b7234f8699d5254b0",
+      "adaptation": "none;byte-identical"
+    },
+    {
+      "package_file": "sumsigmoid/turn_consolidation.py",
+      "source": "reproduction/2026-10-31_case2_three_procedure_timing/src/turn_consolidation.py",
+      "sha256": "aeb7360365c573e50856d961a0e5b3e7e5bf78c72bdf06e09e2f304c75952b0f",
+      "adaptation": "none;byte-identical"
+    },
+    {
+      "package_file": "sumsigmoid/model.py",
+      "source": "review_package/sumsigmoid/model.py",
+      "source_sha256": "366da2302a15c317ddcf3dfdfe013a685945a0106c111d8092e6227ef11ee356",
+      "package_sha256": "366da2302a15c317ddcf3dfdfe013a685945a0106c111d8092e6227ef11ee356",
+      "adaptation": "none;byte-identical"
+    },
+    {
+      "package_file": "sumsigmoid/optimization.py",
+      "source": "review_package/sumsigmoid/optimization.py",
+      "source_sha256": "7dab7bad86c04c7354ab8c901beef8058c349a271d1072ee1ce9fd7adb76a273",
+      "package_sha256": "7dab7bad86c04c7354ab8c901beef8058c349a271d1072ee1ce9fd7adb76a273",
+      "adaptation": "none;byte-identical"
+    },
+    {
+      "package_file": "sumsigmoid/acceptance.py",
+      "source": "review_package/sumsigmoid/acceptance.py",
+      "source_sha256": "29cddca965af64dbaaf886a8099ff9b85272a8354d30ccf38627ecb645fd534d",
+      "package_sha256": "29cddca965af64dbaaf886a8099ff9b85272a8354d30ccf38627ecb645fd534d",
+      "adaptation": "none;byte-identical"
+    },
+    {
+      "package_file": "sumsigmoid/config.py",
+      "source": "review_package/sumsigmoid/config.py",
+      "source_sha256": "b3268e3c84712af17993d07487fb8c3d4fbc71965900e85763d2ebe3c7c94610",
+      "package_sha256": "b3268e3c84712af17993d07487fb8c3d4fbc71965900e85763d2ebe3c7c94610",
+      "adaptation": "none;byte-identical"
+    },
+    {
+      "package_file": "sumsigmoid/io.py",
+      "source": "review_package/sumsigmoid/io.py",
+      "source_sha256": "fb12bda9734835175a57c82eaa12e788e4b223b30a7932909f6ecd6e7ca48d99",
+      "package_sha256": "fb12bda9734835175a57c82eaa12e788e4b223b30a7932909f6ecd6e7ca48d99",
+      "adaptation": "none;byte-identical"
+    }
+  ],
+  "new_support_code": "Original-source import verification,configuration/CLI orchestration,external training diagnostics and regression tests;no original kernel changes.",
+  "denominator_default": "living S+E+I+R",
+  "total_denominator_experiment_not_default": true,
+  "assistance": "OpenAI Codex;exact backend model/version not verifiably recorded and not asserted.",
+  "human_review_pending": true
+}

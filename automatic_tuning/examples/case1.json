@@ -1,0 +1,25 @@
+{
+  "data": {
+    "file": "data_case1.csv",
+    "header": true,
+    "delimiter": ",",
+    "date_column": "day",
+    "count_column": "infectious_count"
+  },
+  "time_origin": 0,
+  "training_cutoff": 159,
+  "population": 2794356,
+  "initial_guess": {
+    "E0": 430,
+    "I0": 430
+  },
+  "procedure": "legacy",
+  "seed": 20261031,
+  "output_directory": "../outputs/case1",
+  "tmcmc": {
+    "enabled": false,
+    "particles": 4000,
+    "workers": 8,
+    "seed": 106
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "data": {
+    "file": "data_toronto.csv",
+    "header": true,
+    "delimiter": ",",
+    "date_column": "date",
+    "count_column": "active_count"
+  },
+  "time_origin": "2020-04-01",
+  "training_cutoff": "2020-09-07",
+  "population": 2794356,
+  "initial_guess": {
+    "E0": 430,
+    "I0": 430
+  },
+  "procedure": "legacy",
+  "seed": 20261031,
+  "output_directory": "../outputs/toronto",
+  "tmcmc": {
+    "enabled": false,
+    "particles": 4000,
+    "workers": 8,
+    "seed": 106
+  }
+}
