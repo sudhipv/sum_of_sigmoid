@@ -1,0 +1,22 @@
+Code: GPL-3.0, as in the source repository. Retain LICENSE and original author
+headers. Original sampler/distribution files are unchanged pinned Git sources.
+
+Synthetic observations and generating trajectories: existing research artifacts
+from this sum_of_sigmoid repository, provided by the author for this handoff.
+Exact original bytes/hashes are retained. They are not newly generated data or
+reconstructed 'truth'. Preserve research attribution through CITATION.cff.
+Case two has no true coefficients/locations for its fitted sigmoid representation.
+
+Toronto: aggregate publicly reported active-case counts, Ministry of Health,
+Ontario; historical repository extract for Toronto PHU. The source catalogue lists
+Open Government Licence – Ontario:
+https://data.ontario.ca/en/dataset/status-of-covid-19-cases-in-ontario-by-public-health-unit-phu
+Licence: https://www.ontario.ca/page/open-government-licence-ontario
+Contains information licensed under the Open Government Licence – Ontario.
+This is a research extract, not an official endorsed publication. No personal
+case records or government logos are included. Calendar mapping is the existing
+accepted repository mapping, not a refreshed download. The original historical
+extract is preserved; catalogue updates/date-range metadata do not replace it.
+Licence and catalogue labels were checked on 2026-11-01. Direct page fetches
+returned403/429; the official indexed catalogue/licence text confirmed the label
+and redistribution/attribution terms. No endorsement is implied.

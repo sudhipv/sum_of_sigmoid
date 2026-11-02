@@ -8,6 +8,8 @@ sys.dont_write_bytecode=True
 if 'SUMSIGMOID_ORIGINAL_TMCMC_SEED' in os.environ:
     import numpy as np
     np.random.seed(int(os.environ['SUMSIGMOID_ORIGINAL_TMCMC_SEED']))
+    from sumsigmoid.mutation_controls import restore_worker_module
+    restore_worker_module()
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)

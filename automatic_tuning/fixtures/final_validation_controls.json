@@ -1,0 +1,130 @@
+{
+  "description": "Saved numerical checks and per-case controls; not posterior-convergence or scientific-validation proof",
+  "original_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+  "original_sampler_sha256": "d1f4c251c8fcb9f1797604bb84ce4cf6826c0bd3a73336a9e85a461832a0e0e2",
+  "original_distributions_sha256": "436163455a6f294f03339b45629d8f012511e4ba04c45467bddbd4d76bf86b6c",
+  "fixed50_experimental_sha256": "5f38aad7fce446037f43f16db24c582b310c038fc7f28babdfbef12da08a2142",
+  "scientific_model": "total S+E+I+R+D; unchanged likelihood/rates/noise/bounds; inferred E0/I0",
+  "counts": {
+    "case1": {
+      "sigmoids": 11,
+      "parameters": 14
+    },
+    "case2": {
+      "sigmoids": 10,
+      "parameters": 13
+    },
+    "toronto": {
+      "sigmoids": 16,
+      "parameters": 19
+    }
+  },
+  "results": [
+    {
+      "case": "case1",
+      "seed": "106",
+      "sigmoids": "11",
+      "parameters": "14",
+      "mutation_policy": "original_adaptive",
+      "best_NLL": "899.7247349935489",
+      "median_NLL": "904.5571506759634",
+      "training_RMSE": "107.25669876083032",
+      "sampling_seconds": "187.58568797190674",
+      "stages": "27",
+      "forecast_RMSE_daily": "894.0602246254404",
+      "coverage95": "1.0",
+      "interval_width95": "2779.925990258579",
+      "forecast_bias": "615.2704165388899",
+      "interval_type": "latent",
+      "WIS": "pending exact Brandon scorer",
+      "target": "saved generating latent I"
+    },
+    {
+      "case": "case2",
+      "seed": "106",
+      "sigmoids": "10",
+      "parameters": "13",
+      "mutation_policy": "fixed50_experimental",
+      "best_NLL": "862.0762976422891",
+      "median_NLL": "867.0103327694358",
+      "training_RMSE": "84.18228498496688",
+      "sampling_seconds": "808.4866932937875",
+      "stages": "22",
+      "forecast_RMSE_daily": "3718.8165940635686",
+      "coverage95": "0.0",
+      "interval_width95": "129.22772994217559",
+      "forecast_bias": "-2355.1551641127057",
+      "interval_type": "latent",
+      "WIS": "pending exact Brandon scorer",
+      "target": "saved generating latent I"
+    },
+    {
+      "case": "case2_seed107",
+      "seed": "107",
+      "sigmoids": "10",
+      "parameters": "13",
+      "mutation_policy": "fixed50_experimental",
+      "best_NLL": "862.2273714636945",
+      "median_NLL": "867.0319219517003",
+      "training_RMSE": "84.18082192922715",
+      "sampling_seconds": "847.287413805956",
+      "stages": "20",
+      "forecast_RMSE_daily": "3718.4074037690293",
+      "coverage95": "0.0",
+      "interval_width95": "132.0259815207181",
+      "forecast_bias": "-2354.7274979261338",
+      "interval_type": "latent",
+      "WIS": "pending exact Brandon scorer",
+      "target": "saved generating latent I"
+    },
+    {
+      "case": "case2_seed108",
+      "seed": "108",
+      "sigmoids": "10",
+      "parameters": "13",
+      "mutation_policy": "fixed50_experimental",
+      "best_NLL": "862.0832405390465",
+      "median_NLL": "867.0796668354529",
+      "training_RMSE": "84.22499667379851",
+      "sampling_seconds": "695.597079697065",
+      "stages": "22",
+      "forecast_RMSE_daily": "3719.3664246371695",
+      "coverage95": "0.0",
+      "interval_width95": "131.78839108033648",
+      "forecast_bias": "-2355.7520707050853",
+      "interval_type": "latent",
+      "WIS": "pending exact Brandon scorer",
+      "target": "saved generating latent I"
+    },
+    {
+      "case": "toronto",
+      "seed": "106",
+      "sigmoids": "16",
+      "parameters": "19",
+      "mutation_policy": "original_adaptive",
+      "best_NLL": "848.7216662971131",
+      "median_NLL": "854.7828738876827",
+      "training_RMSE": "73.59365799049614",
+      "sampling_seconds": "212.14673680718988",
+      "stages": "29",
+      "forecast_RMSE_daily": "387.07053768206026",
+      "coverage95": "0.9",
+      "interval_width95": "1215.7861373347448",
+      "forecast_bias": "-238.70006100082998",
+      "interval_type": "observation-predictive",
+      "WIS": "pending exact Brandon scorer",
+      "target": "observed active I"
+    }
+  ],
+  "case2_reference_seed": 106,
+  "case2_repeat_seeds": [
+    107,
+    108
+  ],
+  "case2_warning": "All three fixed50 runs reached the good-fit region and agree in checked summaries, but all forecast latent coverages are 0%; predictive adequacy unresolved.",
+  "WIS": "pending exact Brandon scorer/fixture; no historical three-interval substitution",
+  "source_artifacts": "reproduction/2026-11-01_remaining_validation_handoff",
+  "reused_case1": "reproduction/2026-11-01_final_automatic_baselines/runs/case1",
+  "reused_case2_seed106": "reproduction/2026-11-01_case2_original_total_fixed50",
+  "reused_toronto": "reproduction/2026-11-01_toronto_total_population_original_sampler/runs/automatic16_total_N"
+}

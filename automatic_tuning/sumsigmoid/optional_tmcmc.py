@@ -2,6 +2,8 @@
 
 Inspection and training checks are outside the two verbatim original files.
 No Pool initializer, covariance fix, altered MH rule or retry is applied.
+An explicit experimental policy fixes the existing mutation controls at 50;
+the original source files remain verbatim and the default stays adaptive 5–10.
 """
 from pathlib import Path
 import multiprocessing as mp
@@ -53,6 +55,11 @@ def inspect_prepared(prepared):
         raise RuntimeError("Actual TMCMC callback does not reproduce the accepted ML NLL")
     pars = [distributions.Uniform(lower=a, upper=b) for a, b in zip(lower, upper)]
     settings = config["tmcmc"]
+    from .mutation_controls import describe, load_fixed50
+    controls=describe(settings.get('mutation_policy','original_adaptive'))
+    executed_source=dict(actual_import=str(Path(engine.__file__).resolve()),sha256=sha(engine.__file__),original_files_unchanged=True)
+    if controls['experimental']:
+        engine,executed_source=load_fixed50(folder/'experimental_sampler')
     plan = dict(
         particles=settings["particles"], seed=settings["seed"],
         requested_workers=settings["workers"], actual_native_worker_count=mp.cpu_count(),
@@ -67,6 +74,7 @@ def inspect_prepared(prepared):
         worker_rng_policy="original behavior; shared configured seed on CLI spawn import; no distinct-stream initializer",
         no_forecasts=True, training_review_required=True,
         importance_ESS_is_not_independent_chain_ESS=True,
+        mutation_controls=controls,executed_sampler=executed_source,
     )
     return folder, config, priors, ml, target, engine, pars, plan
 
@@ -91,22 +99,30 @@ def run(prepared, dry_run=False):
     # initializer. CLI spawn imports repeat the seed; fork may inherit a shared
     # state. Neither promises independent worker random streams.
     os.environ["SUMSIGMOID_ORIGINAL_TMCMC_SEED"] = str(plan["seed"])
+    if plan['mutation_controls']['experimental']:
+        os.environ['SUMSIGMOID_FIXED50_DIRECTORY']=str(Path(engine.__file__).resolve().parent)
+    else:
+        os.environ.pop('SUMSIGMOID_FIXED50_DIRECTORY',None)
     np.random.seed(plan["seed"])
     save(output / "sampling_started.json", dict(
         plan=plan, source_hashes=plan["original_source"],
         model_sha256=sha(Path(__file__).with_name("model.py")),
+        executed_sampler=plan['executed_sampler'],mutation_controls=plan['mutation_controls'],
         training_input_sha256=sha(folder / "training_observations.csv"),
     ))
     save(folder / "status.json", {**read(folder / "status.json"), "TMCMC_started": True})
     started = time.perf_counter()
     try:
-        samples, chain, trace, _ = _sample_once(
-            engine, plan["particles"], pars, target.logtarget, str(output / "sampler_status.txt"))
+        from .mutation_controls import record_attempts
+        with record_attempts(engine,50 if plan['mutation_controls']['experimental'] else None) as attempts:
+            samples, chain, trace, _ = _sample_once(
+                engine, plan["particles"], pars, target.logtarget, str(output / "sampler_status.txt"))
     except Exception as exc:
         save(output / "sampling_status.json", dict(status="sampler_failed",error=repr(exc),
             elapsed_seconds=time.perf_counter()-started,no_automatic_retry=True))
         raise
     seconds = time.perf_counter() - started
+    save(output/'mutation_counts.json',attempts)
     arrays = {}
     for j, stage in enumerate(trace):
         arrays.update({f"particles_{j}": stage[0], f"engine_value_{j}": stage[1],
@@ -135,6 +151,7 @@ def run(prepared, dry_run=False):
         sampling_seconds=seconds, stages=len(trace)-1, original_source=final_sources,
         raw_engine_values_preserved=True, fresh_prior_exact_match=True,
         final_tempering_exponent=float(trace[-2][4]), external_checks=checks,
+        executed_sampler=plan['executed_sampler'],mutation_controls=plan['mutation_controls'],
         status="completed_requires_training_review",
     ))
     return dict(status="completed_requires_training_review", output=str(output),
@@ -145,5 +162,8 @@ def run(prepared, dry_run=False):
 
 
 def _sample_once(engine, count, priors, callback, status_file):
-    """Unmodified five-argument interface; tests intercept this external seam."""
+    """Original interface; only explicit fixed50 supplies existing control args."""
+    if engine.__name__=='sos_fixed50_tmcmc':
+        return engine.run_tmcmc(count,priors,callback,'multiprocessing',status_file,
+                               Nm_steps_max=50,Nm_steps_maxmax=50)
     return engine.run_tmcmc(count, priors, callback, "multiprocessing", status_file)

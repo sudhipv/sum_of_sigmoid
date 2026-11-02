@@ -28,9 +28,25 @@ particles have incomplete generating provenance; they are not substituted for
 the documented historical reproduction or matched baselines.
 
 The new publication path uses the exact original sampler with the subsequently
-approved total-population denominator S+E+I+R+D. **No sampling has been run through this new package.** Thus none
+approved total-population denominator S+E+I+R+D. At the initial publication commit
+`7612237`, no sampling had yet been run through that package. Thus none
 of the existing corrected-worker results is evidence of an original-sampler
 publication run. The original total-denominator control is a separate scientific
 configuration; its success does not establish that worker initialization caused
 another run's failure. The denominator update follows explicit author instruction.
 Historical living results above keep their original labels and parameters.
+
+## Subsequent final-baseline validation
+
+Final original-sampler case-one and case-two runs were subsequently completed.
+Case one passed the descriptive training checks; the original default case-two
+run failed badly and remains preserved as failed sampled output. Later case-two
+fixed-50 experiments are explicitly experimental control derivatives, not
+relabeled unmodified-original runs. The final reference uses seed106, with
+exactly two new validation repeats at107/108. A compatible completed Toronto
+total-denominator original-sampler run was independently verified for reuse.
+
+See [current case-specific settings and limitations](VALIDATION_HANDOFF.md) and
+`../fixtures/final_validation_controls.json`. Passing training/domain checks or
+repeat agreement is not full posterior convergence. The separate collaborator
+archive includes validation status; failed populations stay in diagnostic history.

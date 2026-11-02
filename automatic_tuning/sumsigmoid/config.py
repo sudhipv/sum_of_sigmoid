@@ -14,11 +14,13 @@ def load(path):
     if set(c)-allowed:raise ValueError('Unknown configuration fields:'+','.join(sorted(set(c)-allowed)))
     for key in ['data','time_origin','training_cutoff','population','initial_guess','output_directory']:
         if key not in c:raise ValueError(f'Required configuration input:{key}')
-    for name,known in [('model',MODEL_DEFAULTS),('bounds',BOUND_DEFAULTS),('tmcmc',{'enabled':False,'particles':4000,'workers':8,'seed':106})]:
+    for name,known in [('model',MODEL_DEFAULTS),('bounds',BOUND_DEFAULTS),('tmcmc',{'enabled':False,'particles':4000,'workers':8,'seed':106,'mutation_policy':'original_adaptive'})]:
         if set(c.get(name,{}))-set(known):raise ValueError('Unknown '+name+' settings')
     c['model']={**deepcopy(MODEL_DEFAULTS),**c.get('model',{})}
     c['bounds']={**deepcopy(BOUND_DEFAULTS),**c.get('bounds',{})}
-    c['tmcmc']={**dict(enabled=False,particles=4000,workers=8,seed=106),**c.get('tmcmc',{})}
+    c['tmcmc']={**dict(enabled=False,particles=4000,workers=8,seed=106,mutation_policy='original_adaptive'),**c.get('tmcmc',{})}
+    from .mutation_controls import describe
+    describe(c['tmcmc']['mutation_policy'])
     c.setdefault('procedure','legacy');c.setdefault('seed',20261031)
     if type(c['seed']) is not int or not 0<=c['seed']<2**32:raise ValueError('ML seed must be a uint32 integer')
     if type(c['tmcmc']['seed']) is not int or not 0<=c['tmcmc']['seed']<2**32:raise ValueError('TMCMC seed must be a uint32 integer')

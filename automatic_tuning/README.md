@@ -16,6 +16,31 @@ commit `e412562ac57cff503f0f6cc4c2bd9d63da04785b`. They contain no added worker
 initializer or fixes. See [source provenance](docs/PROVENANCE.md) and
 [saved-result provenance](docs/SAVED_RESULTS.md).
 
+The default mutation policy remains `original_adaptive`: the original initial
+five attempts, increasing cap to ten, and acceptance-based move-count adaptation.
+An explicit **experimental** option, `fixed50_experimental`, starts at 50 and
+disables only that existing adaptation flag in a generated run-local copy.
+Setting both original caps to 50 alone would still permit fewer than 50 attempts.
+The original source files remain byte-for-byte unchanged. Neither policy adds a
+worker initializer; duplicated initial worker RNG states remain possible.
+
+```bash
+# Explicit optional configuration; does not change other datasets' defaults.
+python -B run.py prepare --config examples/case2_fixed50_experimental.json
+python -B run.py tmcmc --prepared outputs/case2_fixed50_experimental
+```
+
+Each sampling output records the executed source hash, control policy and actual
+dispatched/completed mutation counts. Attempts include rejected proposals; they
+are not the number accepted or the number of forward-model evaluations.
+See [validation and handoff](docs/VALIDATION_HANDOFF.md) for case-specific settings,
+status and limitations. **Passing training checks is not proof of convergence.**
+
+The [saved-particle notebook](handoff/forward_model.ipynb) and
+[handoff instructions](handoff/README.md) regenerate available trajectories and
+figures without any optimization or sampling. Large posterior/result arrays are
+distributed in a separate collaborator archive, outside Git.
+
 ## Install and run
 
 From the repository root, using Python 3.11 (tested 3.11.5):
