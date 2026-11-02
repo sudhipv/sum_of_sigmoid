@@ -1,3 +1,5 @@
+.gitattributes
+.gitignore
 CITATION.cff
 LICENSE
 PUBLICATION_FILES.txt
@@ -8,6 +10,7 @@ SAVED_RESULTS_PROVENANCE.csv
 SOURCE_PROVENANCE.json
 docs/FILE_GUIDE.md
 docs/PROVENANCE.md
+docs/RESULTS.md
 docs/REVIEW_CHECKLIST.md
 docs/SAMPLER_LIMITATIONS.md
 docs/SAVED_RESULTS.md
@@ -21,6 +24,7 @@ examples/data_case1.csv
 examples/data_case2.csv
 examples/data_toronto.csv
 examples/toronto.json
+fixtures/accepted_automatic_totals.json
 fixtures/final_validation_controls.json
 fixtures/forward_handoff_verification.json
 fixtures/historical_living_model.py
@@ -32,7 +36,25 @@ handoff/build_package.py
 handoff/forward_model.ipynb
 handoff/handoff_tools.py
 handoff/requirements-notebook.txt
+pyproject.toml
 requirements.txt
+results/accepted_ML_parameters.csv
+results/daily_summaries.csv
+results/figures/WIS11.pdf
+results/figures/WIS11.png
+results/figures/accepted_baselines.pdf
+results/figures/accepted_baselines.png
+results/figures/beta_sensitivity.pdf
+results/figures/beta_sensitivity.png
+results/figures/timing_sensitivity.pdf
+results/figures/timing_sensitivity.png
+results/figures/training_detail.pdf
+results/figures/training_detail.png
+results/reproduce.py
+results/summary_schema.json
+results/timing_configurations.json
+results/timing_metrics.csv
+results/wis11.py
 run.py
 sumsigmoid/SAMPLER_REFERENCE.json
 sumsigmoid/__init__.py
@@ -61,6 +83,7 @@ tests/test_handoff_status.py
 tests/test_inputs.py
 tests/test_mutation_controls.py
 tests/test_original_sampler.py
+tests/test_public_results.py
 tests/test_total_denominator.py
 tests/test_training_checks.py
 verify_examples.py

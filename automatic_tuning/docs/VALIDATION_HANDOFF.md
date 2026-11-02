@@ -1,6 +1,6 @@
 # Saved-result validation and collaborator handoff
 
-The inference model uses **S+E+I+R+D**, with the frozen primary automatic dates,
+The inference model uses **S+E+I+R+D**, with the predeclared primary automatic dates,
 jointly inferred baseline/amplitudes/E0/I0, prescribed signed magnitude-0.5
 Uniform priors, sigma=0.1, one-day sigmoid width and Euler dt=0.1 day.
 Training observations are days 0–159. Neither held-out values nor forecasts
@@ -18,8 +18,8 @@ worker initializer is applied. Original sampler and distribution source files
 remain byte-for-byte pinned to `e412562ac57cff503f0f6cc4c2bd9d63da04785b`.
 The case-two derivative changes only the existing move-count adaptation flag
 to `no` and supplies `Nm_steps_max=50, Nm_steps_maxmax=50`. Attempts include
-prior/beta rejections. This is explicit opt-in configuration, not a new default
-or a guarantee of successful inference.
+prior/beta rejections. This is explicit in `examples/case2.json`; the other examples retain adaptive
+controls. It is not a new sampler or a guarantee of successful inference.
 
 The Toronto reuse audit verified source hashes, default move settings, priors,
 seed, initial particles, data/likelihood, shared-model trajectories and all final
@@ -73,3 +73,11 @@ alignment. No missing comparator result is invented.
 
 OpenAI Codex assisted with implementation and verification. No unverifiable
 backend model identifier is asserted. Human scientific/code review remains pending.
+
+## Compact published summaries
+
+See [results](RESULTS.md) for the completed total-population 27-configuration
+timing study and the new, independently checked 11-interval WIS implementation.
+Those scores use the same documented daily targets. Equivalence to Brandon’s
+implementation remains unverified. Public summary reproduction uses only bundled
+CSV/JSON files; no collaborator archive or research folder is imported.

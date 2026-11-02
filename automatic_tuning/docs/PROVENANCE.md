@@ -8,7 +8,7 @@ Original headers credit Mukesh K. Ramancha and David Clarabut; existing reposito
 attribution, GPL-3.0 license and CITATION.cff are retained. No mathematical or
 worker-initializer patch is applied. Explanations are outside those two files.
 
-The frozen detector, legacy consolidation and optional turn consolidation derive
+The versioned detector, legacy consolidation and optional turn consolidation derive
 from `reproduction/2026-10-31_case2_three_procedure_timing/src/` and are copied
 byte-for-byte. Joint likelihood/model and ML retain the verified arithmetic (with the
 subsequently approved addition of D to the infection-flow denominator),

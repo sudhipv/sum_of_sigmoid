@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "sumsigmoid-automatic-tuning"
 version = "0.1.0.dev0"
-description = "Frozen automatic preparation with the verbatim original TMCMC sampler"
+description = "Automatic location selection and joint ML with the original TMCMC sampler"
 requires-python = ">=3.11,<3.12"
 dependencies = ["numpy==1.26.0", "scipy==1.12.0", "matplotlib==3.8.0"]
 license = {file = "LICENSE"}

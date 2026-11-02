@@ -17,7 +17,17 @@
       "package_path": "sumsigmoid/original/pdfs.py"
     }
   },
-  "frozen_components": [
+  "new_support_code": "Original-source import verification,configuration/CLI orchestration,external training diagnostics and regression tests;no original kernel changes.",
+  "denominator_default": "total S+E+I+R+D",
+  "assistance": "OpenAI Codex;exact backend model/version not verifiably recorded and not asserted.",
+  "human_review_pending": true,
+  "denominator_change": "Explicit author instruction; add D only to infection-flow denominator; preserve historical living results and sampler bytes.",
+  "historical_living_snapshot": {
+    "path": "fixtures/historical_living_model.py",
+    "sha256": "366da2302a15c317ddcf3dfdfe013a685945a0106c111d8092e6227ef11ee356",
+    "purpose": "Historical verification only; not imported by ML or TMCMC"
+  },
+  "scientific_components": [
     {
       "package_file": "sumsigmoid/frozen_detector.py",
       "source": "reproduction/2026-10-31_case2_three_procedure_timing/src/detector.py",
@@ -40,7 +50,7 @@
       "package_file": "sumsigmoid/model.py",
       "source": "review_package/sumsigmoid/model.py",
       "source_sha256": "366da2302a15c317ddcf3dfdfe013a685945a0106c111d8092e6227ef11ee356",
-      "package_sha256": "2e7905435f5f7879d0d4fa4902033b5c3a08ea4d4ba570d2470172234935d33e",
+      "package_sha256": "b9593cc2cd1c08b5b9fe0ce8293b2f779a56c2511b6ef139c59a65b939483fa8",
       "adaptation": "Approved addition of D to infection-flow denominator; same equations, Euler arithmetic, likelihood and units otherwise.",
       "total_reference": "reproduction/2026-11-01_toronto_total_population_denominator/preparation/joint_ML.json"
     },
@@ -62,25 +72,32 @@
       "package_file": "sumsigmoid/config.py",
       "source": "review_package/sumsigmoid/config.py",
       "source_sha256": "b3268e3c84712af17993d07487fb8c3d4fbc71965900e85763d2ebe3c7c94610",
-      "package_sha256": "b3268e3c84712af17993d07487fb8c3d4fbc71965900e85763d2ebe3c7c94610",
-      "adaptation": "none;byte-identical"
+      "package_sha256": "ecce5eda5ee3992fbd3fb0dfe7e506647933d3f53ab3a21da8fe5134c2079a4c",
+      "adaptation": "Configuration/validation support and clarified public error descriptions; documented scientific thresholds and bounds unchanged."
     },
     {
       "package_file": "sumsigmoid/io.py",
       "source": "review_package/sumsigmoid/io.py",
       "source_sha256": "fb12bda9734835175a57c82eaa12e788e4b223b30a7932909f6ecd6e7ca48d99",
-      "package_sha256": "fb12bda9734835175a57c82eaa12e788e4b223b30a7932909f6ecd6e7ca48d99",
-      "adaptation": "none;byte-identical"
+      "package_sha256": "365e8d65aec8d463832609a1a3e2c105d6ad0a6c1fdb9edcf0d43a80a68a95de",
+      "adaptation": "Configuration/validation support and clarified public error descriptions; documented scientific thresholds and bounds unchanged."
     }
   ],
-  "new_support_code": "Original-source import verification,configuration/CLI orchestration,external training diagnostics and regression tests;no original kernel changes.",
-  "denominator_default": "total S+E+I+R+D",
-  "assistance": "OpenAI Codex;exact backend model/version not verifiably recorded and not asserted.",
-  "human_review_pending": true,
-  "denominator_change": "Explicit author instruction; add D only to infection-flow denominator; preserve historical living results and sampler bytes.",
-  "historical_living_snapshot": {
-    "path": "fixtures/historical_living_model.py",
-    "sha256": "366da2302a15c317ddcf3dfdfe013a685945a0106c111d8092e6227ef11ee356",
-    "purpose": "Historical verification only; not imported by ML or TMCMC"
+  "accepted_snapshot_reconciliation": {
+    "commit": "ef12811535471ab005c18caf2acbdae0e91b19ad",
+    "study": "2026-11-02_totalN_timing_sensitivity",
+    "scientific_modules_byte_identical": true,
+    "example_change": "case2 explicitly fixed50; case1 and Toronto explicitly original adaptive",
+    "new_scientific_runs": 0,
+    "verified_files": [
+      "model.py",
+      "acceptance.py",
+      "optimization.py",
+      "frozen_detector.py",
+      "legacy_consolidation.py",
+      "turn_consolidation.py",
+      "mutation_controls.py",
+      "target.py"
+    ]
   }
 }

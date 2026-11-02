@@ -2,7 +2,7 @@
 
 The final publication inference model now uses **S+E+I+R+D**. This is an explicit
 author-approved scientific change, not a sampler modification. All other
-scientific settings and the frozen candidate procedure remain unchanged.
+scientific settings and the predeclared candidate procedure remain unchanged.
 
 - **17 deterministic unittest methods passed**, including the seven original
   acceptance scenarios, exact original-source/import checks, total-denominator
@@ -72,3 +72,28 @@ exploration. Detection cutoffs remain1..159 and dt/noise/width remain frozen.
 Deterministic numerical tolerances do not promise bitwise cross-platform ML
 agreement. Plot tests emit nonfatal Matplotlib/pyparsing deprecation warnings.
 Human scientific and code review is still pending.
+
+
+## Current publication reconciliation
+
+The scientific model, candidate rules, optimization/acceptance implementation,
+mutation-control adapter and likelihood callback were compared byte-for-byte
+with the source snapshot used by the accepted 27-configuration study. They
+match. The original sampler and distributions independently match Git commit
+`e412562ac57cff503f0f6cc4c2bd9d63da04785b`. Only explanatory input-error text,
+documentation, explicit example settings and compact result-reproduction files
+were updated. No inference algorithm or automatic selection rule was changed.
+
+The primary case-two example now explicitly chooses `fixed50_experimental`;
+case one and Toronto explicitly choose `original_adaptive`. Saved full-precision
+ML vectors for all three total-denominator automatic baselines are bundled in
+`fixtures/accepted_automatic_totals.json` for forward/likelihood checks.
+The existing historical living checks remain separately labeled.
+
+The three preparation/ML examples, optional sampling dry-runs, deterministic
+tests and compact 27-result score reproduction are verified from an isolated
+copy containing only publication files, without local experiment directories.
+No new sampling or forecast propagation is required for this verification.
+Reproducing compact metrics checks WIS, RMSE, coverage, interval width and bias
+against the saved tables to absolute tolerance 1e-7. These tests assess numerical
+consistency and packaging, not statistical convergence.

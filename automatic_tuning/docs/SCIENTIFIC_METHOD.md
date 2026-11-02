@@ -1,4 +1,4 @@
-# Frozen procedure and implementation contract
+# Automatic location selection: scientific method
 
 Human scientific review is pending. This document describes the packaged code;
 it does not replace the manuscript or approve a new scientific method.
@@ -6,7 +6,8 @@ it does not replace the manuscript or approve a new scientific method.
 ## Candidate proposals
 
 `frozen_detector.py`, `legacy_consolidation.py` and `turn_consolidation.py` are
-byte-for-byte copies of the verified frozen modules. No thresholds changed.
+byte-for-byte copies of the verified study modules. Their rules were specified
+before these comparisons and are held constant; no thresholds changed.
 
 1. Let `s[t]` be the mean of raw counts from `t-3` to `t+3`, clipped at the
    available edges. The five-day relative change is
@@ -117,8 +118,13 @@ seed, so worker RNG states can duplicate. See SAMPLER_LIMITATIONS.md.
 The original Uniform recording offset is decoded outside the engine only:
 true logL = raw engine value + sum(-log(upper-lower)). Original raw records are
 kept. All final likelihoods and the ensemble training fit are checked externally.
-The original short mutation cap and tempering-only stopping rule are unchanged;
-external checks never declare convergence or silently launch a repeat.
+Case one and Toronto retain the original adaptive 5–10 move controls. The
+accepted case-two example uses fixed 50 attempted moves per chain per stage.
+An isolated output-local source copy changes only the existing
+`Adap_calc_Nsteps` flag to `no` and receives both existing caps as 50. The two
+original sampler files remain byte-for-byte unchanged. Tempering completion is
+the original stopping condition; external checks never declare convergence or
+silently launch a repeat.
 
 The approved denominator update changes only the infection-flow population
 sum; all rates, widths, noise, likelihood indexing/normalization, Euler step,

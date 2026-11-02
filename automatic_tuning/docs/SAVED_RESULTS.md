@@ -11,8 +11,8 @@ local research history, not files bundled in this publication folder).
 | Saved result | Actual sampler | Transmission denominator | K / particles | Worker policy |
 |---|---|---|---:|---|
 | Toronto historical accepted reproduction | original repository sampler | S+E+I+R | 5 / 2000 | old shared worker behavior;no distinct-stream initializer |
-| Case one frozen legacy11 | corrected-worker variant | S+E+I+R | 11 / 4000 | SeedSequence-derived distinct worker streams |
-| Case two frozen legacy10 | corrected-worker variant | S+E+I+R | 10 / 4000 | SeedSequence-derived distinct worker streams |
+| Case one automatic legacy11 | corrected-worker variant | S+E+I+R | 11 / 4000 | SeedSequence-derived distinct worker streams |
+| Case two automatic legacy10 | corrected-worker variant | S+E+I+R | 10 / 4000 | SeedSequence-derived distinct worker streams |
 | Toronto matched manual5 | corrected-worker variant | S+E+I+R | 5 / 4000 | SeedSequence-derived distinct worker streams |
 | Toronto optional-turn11 | corrected-worker variant | S+E+I+R | 11 / 4000 | SeedSequence-derived distinct worker streams |
 | Toronto primary automatic16 | corrected-worker variant | S+E+I+R | 16 / 4000 | SeedSequence-derived distinct worker streams |

@@ -28,3 +28,13 @@
 Generated `outputs/`, previous `review_package/`, private audit directories,
 large samples, credentials, caches and experiment runners are not publication
 files. Original tracked historical artifacts remain tracked; none is deleted.
+
+
+The current public case examples explicitly declare accepted per-case mutation
+controls. `results/reproduce.py` reconstructs the selected figures and verifies
+the score tables using only `results/daily_summaries.csv`, `timing_metrics.csv`,
+`timing_configurations.json`, `summary_schema.json` and `wis11.py`.
+`accepted_ML_parameters.csv` keeps estimates and ML/prior supports separately
+labeled. `fixtures/accepted_automatic_totals.json` supplies all three accepted
+total-denominator saved-parameter references. The data tables are summaries,
+not posterior particles or trajectory ensembles. See [results](RESULTS.md).

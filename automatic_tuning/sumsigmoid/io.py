@@ -40,7 +40,7 @@ def load_training(config):
     """
     data=config['data'];origin=config['time_origin'];cutoff=day_number(config['training_cutoff'],origin)
     if not 1<=cutoff<=159:
-        raise ValueError('Frozen detector supports training cutoffs1..159; extension requires review')
+        raise ValueError('Automatic location selection supports training cutoffs1..159; extension requires review')
     counts={}
     with Path(data['file']).open(newline='') as stream:
         reader=csv.reader(stream,delimiter=data.get('delimiter',','))
@@ -62,5 +62,5 @@ def load_training(config):
     if set(counts)!=set(range(cutoff+1)):
         raise ValueError('Training days must be complete0..cutoff; missing days are not imputed')
     y=np.array([counts[k] for k in range(cutoff+1)],dtype=float)
-    if not np.any(y>0):raise ValueError('An all-zero curve is outside the frozen detector domain')
+    if not np.any(y>0):raise ValueError('An all-zero curve is outside the supported detector domain')
     return y,cutoff

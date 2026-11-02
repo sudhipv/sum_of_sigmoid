@@ -36,10 +36,10 @@ def load(path):
     if any(not math.isfinite(float(m[k])) or float(m[k])<=0 for k in m):raise ValueError('Model defaults/settings must be finite and positive')
     if abs(1/m['dt']-round(1/m['dt']))>1e-10:raise ValueError('dt must divide one day exactly')
     if m['dt']!=.1 or m['sigma']!=.1 or m['sigmoid_width']!=1.:
-        raise ValueError('This frozen package supports dt=.1,sigma=.1,width=1 only;scientific changes need review')
+        raise ValueError('This release supports dt=.1,sigma=.1,width=1 only;scientific changes need review')
     for key in ['baseline_ml','amplitudes_ml','baseline_tmcmc']:
         if len(c['bounds'][key])!=2 or c['bounds'][key][0]>=c['bounds'][key][1]:raise ValueError('Invalid bounds:'+key)
-    if c['bounds']!=BOUND_DEFAULTS:raise ValueError('This release preserves the frozen bounds;review changes separately')
+    if c['bounds']!=BOUND_DEFAULTS:raise ValueError('This release preserves the documented bounds;review changes separately')
     if int(c['tmcmc']['particles'])<2 or int(c['tmcmc']['workers'])<1:raise ValueError('Invalid sampler counts')
     c['data']['file']=str((path.parent/c['data']['file']).resolve())
     c['output_directory']=str((path.parent/c['output_directory']).resolve())

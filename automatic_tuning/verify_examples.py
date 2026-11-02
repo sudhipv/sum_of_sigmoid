@@ -125,9 +125,27 @@ print(json.dumps(dict(NLL=-target.logtarget(p),parameter_names=target.MODEL.name
 def main():
     historical = check_historical()
     total = check_total_reference()
+    accepted=[]
+    for ref in json.loads((ROOT/'fixtures/accepted_automatic_totals.json').read_text()):
+        cfg=load(ROOT/ref['config']);y,cutoff=load_training(cfg)
+        assert prepare(y,cutoff,cfg['procedure'])['locations']==ref['locations']
+        model=Model(y,ref['locations'],cfg);p=np.asarray(ref['parameters'])
+        assert model.names==ref['parameter_names']
+        assert cfg['tmcmc']['mutation_policy']==ref['mutation_policy']
+        ml=Problem(y,ref['locations'],cfg).nll(p);callback=-model.logtarget(p)
+        assert ml==callback and abs(ml-ref['NLL'])<1e-7
+        _,states=model.evaluate(p,True)
+        rmse=float(np.sqrt(np.mean((states[::10,2]-y)**2)))
+        assert abs(rmse-ref['training_RMSE'])<1e-7
+        mass=float(np.max(abs(states.sum(axis=1)-cfg['population'])))
+        assert mass<1e-6
+        accepted.append(dict(case=ref['case'],NLL=ml,saved_NLL=ref['NLL'],RMSE=rmse,
+            candidate_count=len(ref['locations']),mutation_policy=ref['mutation_policy'],
+            ML_callback_equivalence=True,maximum_population_error_persons=mass))
     _, _, original = load_original()
     print(json.dumps(dict(status='PASS', publication_denominator=DENOMINATOR,
         historical_living_checks=historical, total_denominator_reference=total,
+        accepted_automatic_references=accepted,
         original_source=original, new_fits=0, new_sampling_runs=0), indent=2))
 
 if __name__ == '__main__':

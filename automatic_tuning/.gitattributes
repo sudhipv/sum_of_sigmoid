@@ -1,5 +1,8 @@
 # Keep new source/data diffs consistent across platforms.
 * text eol=lf
+# Preserve binary scientific figures; never normalize compressed bytes.
+*.png -text
+*.pdf -text
 # These two files must retain their exact committed bytes on every checkout.
 sumsigmoid/original/tmcmc_mod.py -text
 sumsigmoid/original/pdfs.py -text
