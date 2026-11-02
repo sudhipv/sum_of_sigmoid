@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sumsigmoid-automatic-tuning"
+version = "0.1.0.dev0"
+description = "Automatic location selection and joint ML with the original TMCMC sampler"
+requires-python = ">=3.11,<3.12"
+dependencies = ["numpy==1.26.0", "scipy==1.12.0", "matplotlib==3.8.0"]
+license = {file = "LICENSE"}
+
+[tool.setuptools]
+packages = ["sumsigmoid", "sumsigmoid.original"]
+
+[tool.setuptools.package-data]
+sumsigmoid = ["SAMPLER_REFERENCE.json"]

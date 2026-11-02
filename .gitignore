@@ -18,3 +18,26 @@ ENV/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Preserved local research outputs (already tracked artifacts stay tracked).
+/reproduction/
+/review_package/outputs/
+/review_package/
+/automatic_tuning/outputs/
+/data/out/
+/data/pregenerated/
+/figs/
+/inference/manual_tuning/figs/
+/examples/notebooks/
+/misc/data/stat-file*
+/misc/data/muVec*
+
+# Local editor/agent state and private correspondence, not publication inputs.
+/.vscode/
+/.codex/
+/.aws/
+/AGENTS.md
+/PLOS_Codex_Complete_Handoff.txt
+/*.msg
+/.env
+/.env.*

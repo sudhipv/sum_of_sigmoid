@@ -1,0 +1,51 @@
+{
+  "data": {
+    "file": "data_case1.csv",
+    "header": true,
+    "delimiter": ",",
+    "date_column": "day",
+    "count_column": "infectious_count"
+  },
+  "time_origin": 0,
+  "training_cutoff": 159,
+  "population": 2794356,
+  "initial_guess": {
+    "E0": 430,
+    "I0": 430
+  },
+  "procedure": "legacy",
+  "seed": 20261031,
+  "output_directory": "../outputs/case1",
+  "tmcmc": {
+    "enabled": false,
+    "particles": 4000,
+    "workers": 8,
+    "seed": 106,
+    "mutation_policy": "original_adaptive"
+  },
+  "model": {
+    "dt": 0.1,
+    "sigma": 0.1,
+    "sigmoid_width": 1.0,
+    "gamma_e": 0.06666666666666667,
+    "gamma_i": 0.2,
+    "gamma_r": 0.09090909090909091,
+    "gamma_d": 0.0013333333333333333
+  },
+  "bounds": {
+    "baseline_ml": [
+      1e-06,
+      0.5
+    ],
+    "amplitudes_ml": [
+      -0.5,
+      0.5
+    ],
+    "initial_condition_upper_fraction": 0.001,
+    "baseline_tmcmc": [
+      0.0,
+      0.5
+    ],
+    "amplitude_tmcmc_magnitude": 0.5
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "tmcmc_mod.py": {
+    "commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+    "repository_path": "inference/mcmc/tmcmc_mod/tmcmc_mod.py",
+    "git_blob": "18342107a4d4b4d0e6f975f0b52417f9c19052e3",
+    "bytes": 16064,
+    "sha256": "d1f4c251c8fcb9f1797604bb84ce4cf6826c0bd3a73336a9e85a461832a0e0e2",
+    "package_path": "sumsigmoid/original/tmcmc_mod.py"
+  },
+  "pdfs.py": {
+    "commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+    "repository_path": "inference/mcmc/tmcmc_mod/pdfs.py",
+    "git_blob": "542ff85259d7ec26d955ebd6105cc14caddd4883",
+    "bytes": 4457,
+    "sha256": "436163455a6f294f03339b45629d8f012511e4ba04c45467bddbd4d76bf86b6c",
+    "package_path": "sumsigmoid/original/pdfs.py"
+  }
+}

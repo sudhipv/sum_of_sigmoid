@@ -1,0 +1,3692 @@
+[
+  {
+    "id": "case1_manual_base",
+    "case": "case1",
+    "procedure": "manual",
+    "shift": 0,
+    "locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "baseline_locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "priors": {
+      "locations": [
+        20,
+        35,
+        60,
+        80,
+        140
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_manual_minus5",
+    "case": "case1",
+    "procedure": "manual",
+    "shift": -5,
+    "locations": [
+      15,
+      30,
+      55,
+      75,
+      135
+    ],
+    "baseline_locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "priors": {
+      "locations": [
+        15,
+        30,
+        55,
+        75,
+        135
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_manual_plus5",
+    "case": "case1",
+    "procedure": "manual",
+    "shift": 5,
+    "locations": [
+      25,
+      40,
+      65,
+      85,
+      145
+    ],
+    "baseline_locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "priors": {
+      "locations": [
+        25,
+        40,
+        65,
+        85,
+        145
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_automatic_base",
+    "case": "case1",
+    "procedure": "automatic",
+    "shift": 0,
+    "locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      139,
+      143
+    ],
+    "baseline_locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      139,
+      143
+    ],
+    "priors": {
+      "locations": [
+        23,
+        36,
+        58,
+        68,
+        79,
+        89,
+        104,
+        109,
+        134,
+        139,
+        143
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_automatic_minus5",
+    "case": "case1",
+    "procedure": "automatic",
+    "shift": -5,
+    "locations": [
+      18,
+      31,
+      53,
+      63,
+      74,
+      84,
+      99,
+      104,
+      129,
+      134,
+      138
+    ],
+    "baseline_locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      139,
+      143
+    ],
+    "priors": {
+      "locations": [
+        18,
+        31,
+        53,
+        63,
+        74,
+        84,
+        99,
+        104,
+        129,
+        134,
+        138
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_automatic_plus5",
+    "case": "case1",
+    "procedure": "automatic",
+    "shift": 5,
+    "locations": [
+      28,
+      41,
+      63,
+      73,
+      84,
+      94,
+      109,
+      114,
+      139,
+      144,
+      148
+    ],
+    "baseline_locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      139,
+      143
+    ],
+    "priors": {
+      "locations": [
+        28,
+        41,
+        63,
+        73,
+        84,
+        94,
+        109,
+        114,
+        139,
+        144,
+        148
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_turn_base",
+    "case": "case1",
+    "procedure": "turn",
+    "shift": 0,
+    "locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      143
+    ],
+    "baseline_locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      143
+    ],
+    "priors": {
+      "locations": [
+        23,
+        36,
+        58,
+        68,
+        79,
+        89,
+        104,
+        109,
+        134,
+        143
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_turn_minus5",
+    "case": "case1",
+    "procedure": "turn",
+    "shift": -5,
+    "locations": [
+      18,
+      31,
+      53,
+      63,
+      74,
+      84,
+      99,
+      104,
+      129,
+      138
+    ],
+    "baseline_locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      143
+    ],
+    "priors": {
+      "locations": [
+        18,
+        31,
+        53,
+        63,
+        74,
+        84,
+        99,
+        104,
+        129,
+        138
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case1_turn_plus5",
+    "case": "case1",
+    "procedure": "turn",
+    "shift": 5,
+    "locations": [
+      28,
+      41,
+      63,
+      73,
+      84,
+      94,
+      109,
+      114,
+      139,
+      148
+    ],
+    "baseline_locations": [
+      23,
+      36,
+      58,
+      68,
+      79,
+      89,
+      104,
+      109,
+      134,
+      143
+    ],
+    "priors": {
+      "locations": [
+        28,
+        41,
+        63,
+        73,
+        84,
+        94,
+        109,
+        114,
+        139,
+        148
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_manual_base",
+    "case": "case2",
+    "procedure": "manual",
+    "shift": 0,
+    "locations": [
+      20,
+      40,
+      60,
+      90,
+      120
+    ],
+    "baseline_locations": [
+      20,
+      40,
+      60,
+      90,
+      120
+    ],
+    "priors": {
+      "locations": [
+        20,
+        40,
+        60,
+        90,
+        120
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_manual_minus5",
+    "case": "case2",
+    "procedure": "manual",
+    "shift": -5,
+    "locations": [
+      15,
+      35,
+      55,
+      85,
+      115
+    ],
+    "baseline_locations": [
+      20,
+      40,
+      60,
+      90,
+      120
+    ],
+    "priors": {
+      "locations": [
+        15,
+        35,
+        55,
+        85,
+        115
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_manual_plus5",
+    "case": "case2",
+    "procedure": "manual",
+    "shift": 5,
+    "locations": [
+      25,
+      45,
+      65,
+      95,
+      125
+    ],
+    "baseline_locations": [
+      20,
+      40,
+      60,
+      90,
+      120
+    ],
+    "priors": {
+      "locations": [
+        25,
+        45,
+        65,
+        95,
+        125
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_automatic_base",
+    "case": "case2",
+    "procedure": "automatic",
+    "shift": 0,
+    "locations": [
+      19,
+      22,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "baseline_locations": [
+      19,
+      22,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "priors": {
+      "locations": [
+        19,
+        22,
+        35,
+        40,
+        45,
+        58,
+        74,
+        89,
+        104,
+        112
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_automatic_minus5",
+    "case": "case2",
+    "procedure": "automatic",
+    "shift": -5,
+    "locations": [
+      14,
+      17,
+      30,
+      35,
+      40,
+      53,
+      69,
+      84,
+      99,
+      107
+    ],
+    "baseline_locations": [
+      19,
+      22,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "priors": {
+      "locations": [
+        14,
+        17,
+        30,
+        35,
+        40,
+        53,
+        69,
+        84,
+        99,
+        107
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_automatic_plus5",
+    "case": "case2",
+    "procedure": "automatic",
+    "shift": 5,
+    "locations": [
+      24,
+      27,
+      40,
+      45,
+      50,
+      63,
+      79,
+      94,
+      109,
+      117
+    ],
+    "baseline_locations": [
+      19,
+      22,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "priors": {
+      "locations": [
+        24,
+        27,
+        40,
+        45,
+        50,
+        63,
+        79,
+        94,
+        109,
+        117
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_turn_base",
+    "case": "case2",
+    "procedure": "turn",
+    "shift": 0,
+    "locations": [
+      19,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "baseline_locations": [
+      19,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "priors": {
+      "locations": [
+        19,
+        35,
+        40,
+        45,
+        58,
+        74,
+        89,
+        104,
+        112
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_turn_minus5",
+    "case": "case2",
+    "procedure": "turn",
+    "shift": -5,
+    "locations": [
+      14,
+      30,
+      35,
+      40,
+      53,
+      69,
+      84,
+      99,
+      107
+    ],
+    "baseline_locations": [
+      19,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "priors": {
+      "locations": [
+        14,
+        30,
+        35,
+        40,
+        53,
+        69,
+        84,
+        99,
+        107
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "case2_turn_plus5",
+    "case": "case2",
+    "procedure": "turn",
+    "shift": 5,
+    "locations": [
+      24,
+      40,
+      45,
+      50,
+      63,
+      79,
+      94,
+      109,
+      117
+    ],
+    "baseline_locations": [
+      19,
+      35,
+      40,
+      45,
+      58,
+      74,
+      89,
+      104,
+      112
+    ],
+    "priors": {
+      "locations": [
+        24,
+        40,
+        45,
+        50,
+        63,
+        79,
+        94,
+        109,
+        117
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        0.0,
+        -0.5,
+        -0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "upper": [
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.5,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "fixed50_experimental"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_manual_base",
+    "case": "toronto",
+    "procedure": "manual",
+    "shift": 0,
+    "locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "baseline_locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "priors": {
+      "locations": [
+        20,
+        35,
+        60,
+        80,
+        140
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_manual_minus5",
+    "case": "toronto",
+    "procedure": "manual",
+    "shift": -5,
+    "locations": [
+      15,
+      30,
+      55,
+      75,
+      135
+    ],
+    "baseline_locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "priors": {
+      "locations": [
+        15,
+        30,
+        55,
+        75,
+        135
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_manual_plus5",
+    "case": "toronto",
+    "procedure": "manual",
+    "shift": 5,
+    "locations": [
+      25,
+      40,
+      65,
+      85,
+      145
+    ],
+    "baseline_locations": [
+      20,
+      35,
+      60,
+      80,
+      140
+    ],
+    "priors": {
+      "locations": [
+        25,
+        40,
+        65,
+        85,
+        145
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_automatic_base",
+    "case": "toronto",
+    "procedure": "automatic",
+    "shift": 0,
+    "locations": [
+      23,
+      24,
+      32,
+      34,
+      35,
+      39,
+      46,
+      56,
+      57,
+      75,
+      88,
+      94,
+      111,
+      129,
+      131,
+      143
+    ],
+    "baseline_locations": [
+      23,
+      24,
+      32,
+      34,
+      35,
+      39,
+      46,
+      56,
+      57,
+      75,
+      88,
+      94,
+      111,
+      129,
+      131,
+      143
+    ],
+    "priors": {
+      "locations": [
+        23,
+        24,
+        32,
+        34,
+        35,
+        39,
+        46,
+        56,
+        57,
+        75,
+        88,
+        94,
+        111,
+        129,
+        131,
+        143
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14",
+        "A15",
+        "A16",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        -0.5,
+        0,
+        0,
+        -0.5,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0,
+        0,
+        0.5,
+        0,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_automatic_minus5",
+    "case": "toronto",
+    "procedure": "automatic",
+    "shift": -5,
+    "locations": [
+      18,
+      19,
+      27,
+      29,
+      30,
+      34,
+      41,
+      51,
+      52,
+      70,
+      83,
+      89,
+      106,
+      124,
+      126,
+      138
+    ],
+    "baseline_locations": [
+      23,
+      24,
+      32,
+      34,
+      35,
+      39,
+      46,
+      56,
+      57,
+      75,
+      88,
+      94,
+      111,
+      129,
+      131,
+      143
+    ],
+    "priors": {
+      "locations": [
+        18,
+        19,
+        27,
+        29,
+        30,
+        34,
+        41,
+        51,
+        52,
+        70,
+        83,
+        89,
+        106,
+        124,
+        126,
+        138
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14",
+        "A15",
+        "A16",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        -0.5,
+        0,
+        0,
+        -0.5,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0,
+        0,
+        0.5,
+        0,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_automatic_plus5",
+    "case": "toronto",
+    "procedure": "automatic",
+    "shift": 5,
+    "locations": [
+      28,
+      29,
+      37,
+      39,
+      40,
+      44,
+      51,
+      61,
+      62,
+      80,
+      93,
+      99,
+      116,
+      134,
+      136,
+      148
+    ],
+    "baseline_locations": [
+      23,
+      24,
+      32,
+      34,
+      35,
+      39,
+      46,
+      56,
+      57,
+      75,
+      88,
+      94,
+      111,
+      129,
+      131,
+      143
+    ],
+    "priors": {
+      "locations": [
+        28,
+        29,
+        37,
+        39,
+        40,
+        44,
+        51,
+        61,
+        62,
+        80,
+        93,
+        99,
+        116,
+        134,
+        136,
+        148
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14",
+        "A15",
+        "A16",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        -0.5,
+        0,
+        0,
+        0,
+        -0.5,
+        0,
+        0,
+        -0.5,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0,
+        0,
+        0.5,
+        0,
+        0.5,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_turn_base",
+    "case": "toronto",
+    "procedure": "turn",
+    "shift": 0,
+    "locations": [
+      24,
+      35,
+      39,
+      46,
+      57,
+      75,
+      88,
+      94,
+      111,
+      131,
+      143
+    ],
+    "baseline_locations": [
+      24,
+      35,
+      39,
+      46,
+      57,
+      75,
+      88,
+      94,
+      111,
+      131,
+      143
+    ],
+    "priors": {
+      "locations": [
+        24,
+        35,
+        39,
+        46,
+        57,
+        75,
+        88,
+        94,
+        111,
+        131,
+        143
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        -0.5,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0,
+        0,
+        0.5,
+        0,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_turn_minus5",
+    "case": "toronto",
+    "procedure": "turn",
+    "shift": -5,
+    "locations": [
+      19,
+      30,
+      34,
+      41,
+      52,
+      70,
+      83,
+      89,
+      106,
+      126,
+      138
+    ],
+    "baseline_locations": [
+      24,
+      35,
+      39,
+      46,
+      57,
+      75,
+      88,
+      94,
+      111,
+      131,
+      143
+    ],
+    "priors": {
+      "locations": [
+        19,
+        30,
+        34,
+        41,
+        52,
+        70,
+        83,
+        89,
+        106,
+        126,
+        138
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        -0.5,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0,
+        0,
+        0.5,
+        0,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  },
+  {
+    "id": "toronto_turn_plus5",
+    "case": "toronto",
+    "procedure": "turn",
+    "shift": 5,
+    "locations": [
+      29,
+      40,
+      44,
+      51,
+      62,
+      80,
+      93,
+      99,
+      116,
+      136,
+      148
+    ],
+    "baseline_locations": [
+      24,
+      35,
+      39,
+      46,
+      57,
+      75,
+      88,
+      94,
+      111,
+      131,
+      143
+    ],
+    "priors": {
+      "locations": [
+        29,
+        40,
+        44,
+        51,
+        62,
+        80,
+        93,
+        99,
+        116,
+        136,
+        148
+      ],
+      "parameter_names": [
+        "A0",
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "E0",
+        "I0"
+      ],
+      "lower": [
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0,
+        -0.5,
+        -0.5,
+        0,
+        -0.5,
+        0,
+        0
+      ],
+      "upper": [
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0,
+        0.5,
+        0.5,
+        0,
+        0,
+        0.5,
+        0,
+        2794.356,
+        2794.356
+      ]
+    },
+    "scientific_configuration": {
+      "population": 2794356,
+      "model": {
+        "dt": 0.1,
+        "sigma": 0.1,
+        "sigmoid_width": 1.0,
+        "gamma_e": 0.06666666666666667,
+        "gamma_i": 0.2,
+        "gamma_r": 0.09090909090909091,
+        "gamma_d": 0.0013333333333333333
+      },
+      "bounds": {
+        "baseline_ml": [
+          1e-06,
+          0.5
+        ],
+        "amplitudes_ml": [
+          -0.5,
+          0.5
+        ],
+        "initial_condition_upper_fraction": 0.001,
+        "baseline_tmcmc": [
+          0.0,
+          0.5
+        ],
+        "amplitude_tmcmc_magnitude": 0.5
+      },
+      "initial_guess": {
+        "E0": 430,
+        "I0": 430
+      },
+      "transmission_denominator": "total S+E+I+R+D",
+      "training_days": [
+        0,
+        159
+      ],
+      "fit_scoring_days": [
+        1,
+        159
+      ],
+      "forecast_days": [
+        160,
+        199
+      ],
+      "tmcmc": {
+        "particles": 4000,
+        "seed": 106,
+        "workers": 8,
+        "worker_initialization": "original",
+        "mutation_policy": "original_adaptive"
+      }
+    },
+    "original_sampler_commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b"
+  }
+]
