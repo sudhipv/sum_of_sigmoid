@@ -9,12 +9,14 @@ SAMPLER_REFERENCE.json
 SAVED_RESULTS_PROVENANCE.csv
 SOURCE_PROVENANCE.json
 docs/FILE_GUIDE.md
+docs/INTEGRATION_AUDIT.md
 docs/PROVENANCE.md
 docs/RESULTS.md
 docs/REVIEW_CHECKLIST.md
 docs/SAMPLER_LIMITATIONS.md
 docs/SAVED_RESULTS.md
 docs/SCIENTIFIC_METHOD.md
+docs/THREE_STAGE_WORKFLOW.md
 docs/VALIDATION_HANDOFF.md
 docs/VERIFICATION.md
 examples/case1.json
@@ -36,6 +38,9 @@ handoff/build_package.py
 handoff/forward_model.ipynb
 handoff/handoff_tools.py
 handoff/requirements-notebook.txt
+notebooks/synthetic_case_one.ipynb
+notebooks/synthetic_case_two.ipynb
+notebooks/toronto.ipynb
 pyproject.toml
 requirements.txt
 results/accepted_ML_parameters.csv
@@ -71,7 +76,10 @@ sumsigmoid/optional_tmcmc.py
 sumsigmoid/original/__init__.py
 sumsigmoid/original/pdfs.py
 sumsigmoid/original/tmcmc_mod.py
+sumsigmoid/posterior.py
+sumsigmoid/prepared.py
 sumsigmoid/sampler_provenance.py
+sumsigmoid/scoring.py
 sumsigmoid/target.py
 sumsigmoid/training_checks.py
 sumsigmoid/turn_consolidation.py
@@ -83,6 +91,7 @@ tests/test_handoff_status.py
 tests/test_inputs.py
 tests/test_mutation_controls.py
 tests/test_original_sampler.py
+tests/test_prepared_connection.py
 tests/test_public_results.py
 tests/test_total_denominator.py
 tests/test_training_checks.py

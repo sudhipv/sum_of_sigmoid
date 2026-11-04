@@ -22,5 +22,7 @@
     "workers": 8,
     "seed": 106,
     "mutation_policy": "fixed50_experimental"
-  }
+  },
+  "dataset_id": "case2",
+  "observation_quantity": "synthetic noisy infectious counts"
 }

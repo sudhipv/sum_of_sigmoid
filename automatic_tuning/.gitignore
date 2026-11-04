@@ -9,3 +9,8 @@ dist/
 *.egg-info/
 .env
 .env.*
+
+# Supplied local posterior CSVs / regenerated ensembles are review artifacts,
+# distributed in the separate small handoff rather than a source-code commit.
+saved_baselines/
+regenerated/

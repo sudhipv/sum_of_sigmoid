@@ -85,6 +85,9 @@ def run(config_path,enable_tmcmc=False,output_override=None):
         (folder/'optional_TMCMC_command.txt').write_text(command+'\n')
         save(folder/'status.json',dict(status='accepted',attempts=decision['attempts'],preparation_seconds=time.perf_counter()-started,
             TMCMC_started=False,optional_command=command))
+        from .prepared import write as write_handoff
+        write_handoff(folder)
+        print(f'[handoff] Complete preparation: {folder / "prepared_run.json"}',flush=True)
         if enable_tmcmc or config['tmcmc']['enabled']:
             from .optional_tmcmc import run as sample
             sample(folder)
@@ -102,6 +105,7 @@ def output_paths(folder,has_fit,has_priors):
         training_figure=str(folder/'training_fit.pdf') if has_fit else None,
         TMCMC_configuration=str(folder/'TMCMC_configuration.json') if has_priors else None,
         TMCMC_priors=str(folder/'TMCMC_priors.json') if has_priors else None,
+        prepared_run=str(folder/'prepared_run.json') if has_priors else None,
         optimizer_attempts=str(folder/'optimizer_attempts.json'),status=str(folder/'status.json'))
 
 def save_fit(folder,problem,p,y,locations):

@@ -32,19 +32,22 @@
       "package_file": "sumsigmoid/frozen_detector.py",
       "source": "reproduction/2026-10-31_case2_three_procedure_timing/src/detector.py",
       "sha256": "e6a1619add94090a09c33182521fc01962fe23d6c7738a7c5ba0e838f17a7358",
-      "adaptation": "none;byte-identical"
+      "adaptation": "none;byte-identical",
+      "package_sha256": "e6a1619add94090a09c33182521fc01962fe23d6c7738a7c5ba0e838f17a7358"
     },
     {
       "package_file": "sumsigmoid/legacy_consolidation.py",
       "source": "reproduction/2026-10-31_case2_three_procedure_timing/src/legacy_consolidation.py",
       "sha256": "9651b041478b3de997cef8aba1435245c8208c57dd696b1b7234f8699d5254b0",
-      "adaptation": "none;byte-identical"
+      "adaptation": "none;byte-identical",
+      "package_sha256": "9651b041478b3de997cef8aba1435245c8208c57dd696b1b7234f8699d5254b0"
     },
     {
       "package_file": "sumsigmoid/turn_consolidation.py",
       "source": "reproduction/2026-10-31_case2_three_procedure_timing/src/turn_consolidation.py",
       "sha256": "aeb7360365c573e50856d961a0e5b3e7e5bf78c72bdf06e09e2f304c75952b0f",
-      "adaptation": "none;byte-identical"
+      "adaptation": "none;byte-identical",
+      "package_sha256": "aeb7360365c573e50856d961a0e5b3e7e5bf78c72bdf06e09e2f304c75952b0f"
     },
     {
       "package_file": "sumsigmoid/model.py",
@@ -72,8 +75,8 @@
       "package_file": "sumsigmoid/config.py",
       "source": "review_package/sumsigmoid/config.py",
       "source_sha256": "b3268e3c84712af17993d07487fb8c3d4fbc71965900e85763d2ebe3c7c94610",
-      "package_sha256": "ecce5eda5ee3992fbd3fb0dfe7e506647933d3f53ab3a21da8fe5134c2079a4c",
-      "adaptation": "Configuration/validation support and clarified public error descriptions; documented scientific thresholds and bounds unchanged."
+      "package_sha256": "21878b7b698c3262966e196b7b2f18e210a15fd57140884c9c2cbd7166646b73",
+      "adaptation": "Configuration/validation support and clarified public error descriptions; documented scientific thresholds and bounds unchanged. Dataset identity/quantity metadata added during three-stage integration; numerical settings unchanged."
     },
     {
       "package_file": "sumsigmoid/io.py",
@@ -99,5 +102,30 @@
       "mutation_controls.py",
       "target.py"
     ]
+  },
+  "three_stage_integration": {
+    "date": "2026-11-02",
+    "human_review_pending": true,
+    "interfaces": [
+      "prepared.py",
+      "posterior.py",
+      "date-labelled CSV output",
+      "run-owned input snapshot",
+      "three dataset-specific notebooks"
+    ],
+    "unchanged_scientific_modules": [
+      "model.py",
+      "optimization.py",
+      "acceptance.py",
+      "frozen_detector.py",
+      "legacy_consolidation.py",
+      "turn_consolidation.py",
+      "mutation_controls.py"
+    ],
+    "target_change": "Validated preparation binding and run-owned snapshot only; likelihood always delegates to the unchanged Model.",
+    "scoring": "scoring.py is a byte-identical copy of accepted results/wis11.py; not Brandon-verified",
+    "old_reconciliation_note": "accepted_snapshot_reconciliation records the earlier publication reconciliation; target.py now has the documented interface-only change.",
+    "no_new_sampling": true,
+    "no_new_fitting": true
   }
 }

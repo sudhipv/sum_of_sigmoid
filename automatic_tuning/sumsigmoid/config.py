@@ -10,7 +10,7 @@ BOUND_DEFAULTS=dict(baseline_ml=[1e-6,.5],amplitudes_ml=[-.5,.5],initial_conditi
 
 def load(path):
     path=Path(path).resolve();c=read(path)
-    allowed={'data','time_origin','training_cutoff','population','initial_guess','output_directory','model','bounds','tmcmc','procedure','seed'}
+    allowed={'data','time_origin','training_cutoff','population','initial_guess','output_directory','model','bounds','tmcmc','procedure','seed','dataset_id','observation_quantity'}
     if set(c)-allowed:raise ValueError('Unknown configuration fields:'+','.join(sorted(set(c)-allowed)))
     for key in ['data','time_origin','training_cutoff','population','initial_guess','output_directory']:
         if key not in c:raise ValueError(f'Required configuration input:{key}')

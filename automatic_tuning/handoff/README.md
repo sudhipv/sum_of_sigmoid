@@ -1,5 +1,11 @@
 # SoS saved-particle handoff
 
+The current supported dataset-specific notebooks are
+[`../notebooks/`](../notebooks/): synthetic_case_one, synthetic_case_two and
+toronto. See [the three-stage workflow](../docs/THREE_STAGE_WORKFLOW.md).
+This all-case notebook and builder are preserved as the earlier bundle interface;
+the historical large collaborator package is unchanged.
+
 This source notebook reconstructs final SoS outputs without any new optimization
 or TMCMC. Download the separate result archive linked in the final run report,
 extract it, and open its top-level `forward_model.ipynb` in Jupyter/VS Code.

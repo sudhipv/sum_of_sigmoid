@@ -15,8 +15,59 @@ The original sampler files remain unchanged; the case-two control copy is
 isolated in the output directory. See the dedicated README for exact settings,
 original worker-RNG limitations and optional sampling commands.
 
-The manual notebooks and quickstart below preserve the earlier research
-workflows and their historical scientific settings.
+## Supported workflow: prepare → infer → plot
+
+Use Python 3.11 and install the dependencies from the repository root:
+
+```bash
+python -m pip install -r automatic_tuning/requirements.txt
+python -m pip install -r automatic_tuning/handoff/requirements-notebook.txt
+```
+
+**Route 1 — run a new workflow.** For example, synthetic case two:
+
+```bash
+python automatic_tuning/run.py prepare --config automatic_tuning/examples/case2.json --output automatic_tuning/outputs/my_case2
+python automatic_tuning/run.py tmcmc --prepared automatic_tuning/outputs/my_case2 --dry-run
+# Explicitly launch inference only when desired (this integration task did not):
+python automatic_tuning/run.py tmcmc --prepared automatic_tuning/outputs/my_case2
+python automatic_tuning/run.py posterior --inference automatic_tuning/outputs/my_case2/tmcmc --data automatic_tuning/saved_baselines/case2/observed_daily.csv --truth automatic_tuning/saved_baselines/case2/generating_curves.npz --output automatic_tuning/regenerated/my_case2
+```
+
+Replace `case2` with `case1` or `toronto` and use the corresponding example.
+For Toronto omit `--truth`. The examples contain **training data only**;
+the plot command's separate daily observation/reference inputs come from the
+small saved-result package or must be supplied for your dataset. A valid plotting
+table has columns `day,I,is_observed`, days 0–199, with missing or placeholder
+observations explicitly marked `is_observed=0`. No held-out value enters inference.
+
+Preparation writes `prepared_run.json`: dataset identity, time coordinates,
+fixed dates, complete scientific settings, accepted joint ML, signs and priors.
+Inference reads and validates it, then freezes its own `tmcmc/input_snapshot/`
+and `tmcmc/run_configuration.json`. Named `posterior_samples.csv` columns map
+amplitudes to dates. **Do not copy parameters between scripts.** The plot command
+uses the run-owned configuration and stops on failed training checks. See the
+[three-stage interface](automatic_tuning/docs/THREE_STAGE_WORKFLOW.md) for inputs,
+outputs, sampler limitations and exact commands for all three cases.
+
+**Route 2 — reproduce supplied results without inference.** Extract the small
+handoff next to its README, or place its `saved_baselines/` directory inside
+`automatic_tuning/`. Open and Run All in one of:
+
+- [Synthetic case one posterior notebook](automatic_tuning/notebooks/synthetic_case_one.ipynb)
+- [Synthetic case two posterior notebook](automatic_tuning/notebooks/synthetic_case_two.ipynb)
+- [Toronto posterior notebook](automatic_tuning/notebooks/toronto.ipynb)
+
+Select the Python environment above. `DRAW_ID=None` evaluates all supplied
+samples; an integer selects one row. These notebooks never optimize or sample.
+They regenerate continuous E/I/beta trajectories, separate latent and
+observation-predictive outputs, figures and accepted scores, and compare compact
+saved references. Generated ensembles are intentionally excluded from Git and the
+small package. Source-only Git checkouts need the separately supplied samples.
+
+The manual notebooks and quickstart below are **historical alternatives** with
+their earlier settings, independent equations and hard-coded configurations.
+They are preserved for provenance and are not the supported automatic pipeline.
 
 ## Table of Contents
 
