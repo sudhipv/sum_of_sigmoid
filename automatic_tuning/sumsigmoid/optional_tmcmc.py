@@ -18,19 +18,23 @@ from .model import DENOMINATOR
 def inspect_prepared(prepared):
     """Load the real callback and original modules, but draw no particles."""
     folder = Path(prepared).resolve()
-    if read(folder / "status.json")["status"] != "accepted":
+    from .prepared import load as load_prepared
+    contract=load_prepared(folder)
+    if contract['preparation_status']['status'] != "accepted":
         raise RuntimeError("ML preparation unresolved; TMCMC is blocked")
-    config = read(folder / "configuration.json")
+    config = contract['scientific_configuration']
     if config.get('transmission_denominator') != DENOMINATOR:
         raise RuntimeError('Prepared configuration must explicitly record the total-population denominator; historical preparation is not interchangeable')
-    priors = read(folder / "TMCMC_priors.json")
-    ml = read(folder / "ML_result.json")
+    priors = contract['priors']
+    ml = contract['ML']
     if not ml["accepted"]:
         raise RuntimeError("An accepted joint ML fit is required")
     os.environ["SUMSIGMOID_PREPARED"] = str(folder)
     from . import target
     if target.FOLDER.resolve() != folder:
         raise RuntimeError("Use a fresh CLI process; a different target is already bound")
+    if target.CONTRACT['content_sha256'] != contract['content_sha256']:
+        raise RuntimeError('Use a fresh CLI process; preparation changed after target binding')
     engine, distributions, source = load_original()
     point = np.asarray(ml["parameters"], dtype=float)
     names, locations = target.MODEL.names, target.MODEL.locations
@@ -75,6 +79,7 @@ def inspect_prepared(prepared):
         no_forecasts=True, training_review_required=True,
         importance_ESS_is_not_independent_chain_ESS=True,
         mutation_controls=controls,executed_sampler=executed_source,
+        dataset=contract['dataset'],prepared_content_sha256=contract['content_sha256'],
     )
     return folder, config, priors, ml, target, engine, pars, plan
 
@@ -94,6 +99,13 @@ def run(prepared, dry_run=False):
     if output.exists():
         raise FileExistsError("TMCMC output exists; no resume, overwrite or repeat")
     output.mkdir()
+    # Freeze the exact validated inputs. Parent and spawned workers then use
+    # the run-owned snapshot, never a preparation that may later be edited.
+    from .prepared import snapshot
+    contract=snapshot(folder,output/'input_snapshot')
+    os.environ['SUMSIGMOID_PREPARED']=str((output/'input_snapshot').resolve())
+    target.bind(output/'input_snapshot')
+    save(output/'run_configuration.json',contract)
     save(output / "configuration.json", plan)
     # Preserve the reference runner's shared seed policy; this is NOT a Pool
     # initializer. CLI spawn imports repeat the seed; fork may inherit a shared
@@ -110,7 +122,7 @@ def run(prepared, dry_run=False):
         executed_sampler=plan['executed_sampler'],mutation_controls=plan['mutation_controls'],
         training_input_sha256=sha(folder / "training_observations.csv"),
     ))
-    save(folder / "status.json", {**read(folder / "status.json"), "TMCMC_started": True})
+    save(output / "sampling_status.json", dict(status="sampling_started",preparation_unchanged=True))
     started = time.perf_counter()
     try:
         from .mutation_controls import record_attempts
@@ -132,6 +144,13 @@ def run(prepared, dry_run=False):
     np.savez_compressed(output / "original_stage_records.npz", **arrays)
     np.savez_compressed(output / "stage_populations.npz", chain=chain)
     np.savez_compressed(output / "particles.npz", particles=samples, weights=np.full(len(samples), 1 / len(samples)))
+    # Name amplitudes by their fixed dates; plotting never guesses column order.
+    columns=['A0']+[f'A_day{d}' for d in contract['locations']]+['E0','I0']
+    np.savetxt(output/'posterior_samples.csv',
+               np.column_stack([np.arange(len(samples)),np.full(len(samples),1/len(samples)),samples]),
+               delimiter=',',header=','.join(['draw_id','weight']+columns),comments='',fmt='%.17g')
+    save(output/'parameter_order.json',dict(model_parameter_order=contract['parameter_names'],
+         export_columns=columns,locations=contract['locations'],parameter_units=contract['parameter_units']))
     np.savez_compressed(output / "initial_particles.npz", particles=trace[0][0])
     # Authentication only: replay locally, never inject these expected values.
     rng = np.random.RandomState(plan["seed"])

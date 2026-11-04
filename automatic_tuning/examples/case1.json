@@ -47,5 +47,7 @@
       0.5
     ],
     "amplitude_tmcmc_magnitude": 0.5
-  }
+  },
+  "dataset_id": "case1",
+  "observation_quantity": "synthetic noisy infectious counts"
 }

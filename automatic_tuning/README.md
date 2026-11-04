@@ -1,5 +1,13 @@
 # Automatic location selection
 
+For the complete **prepare → infer → plot** route and the three supported
+saved-posterior notebooks, see [Three-stage workflow](docs/THREE_STAGE_WORKFLOW.md).
+Preparation now writes `prepared_run.json`; inference validates it and saves a
+run-owned input snapshot and date-labelled samples. The posterior notebooks
+evaluate those saved samples with the same forward-model module and never
+launch fitting or sampling. Supplied sample files are in the separate small
+handoff (`saved_baselines/`), not the Git source-only download.
+
 A training-only procedure for proposing sigmoid locations from an observed
 active-case curve, fitting a sum-of-sigmoids transmission model, and preparing
 signed priors for optional TMCMC. The steps and thresholds below were specified

@@ -12,6 +12,10 @@
 | `sumsigmoid/model.py` | Shared total-population equations and normalized likelihood; used by ML/TMCMC/plots. |
 | `sumsigmoid/optimization.py`, `acceptance.py` | Joint free-IC ML and agreed bounded retries. |
 | `sumsigmoid/workflow.py` | Preparation stages, durable output files and terminal paths. |
+| `sumsigmoid/prepared.py` | Complete validated preparation contract and run-owned input snapshots; no new fitting. |
+| `sumsigmoid/posterior.py`, `scoring.py` | Shared-model saved-particle reconstruction and accepted eleven-interval scoring; no sampling. |
+| `notebooks/synthetic_case_one.ipynb`, `synthetic_case_two.ipynb`, `toronto.ipynb` | Supported dataset-specific posterior notebooks. |
+| `docs/THREE_STAGE_WORKFLOW.md`, `INTEGRATION_AUDIT.md` | Commands, schema, original email comments, execution paths and verification scope. |
 | `sumsigmoid/original/tmcmc_mod.py`, `pdfs.py` | Exact original Git source; do not edit for documentation. |
 | `sumsigmoid/sampler_provenance.py` | Check source hashes and actual imported paths. |
 | `sumsigmoid/target.py` | Bind one immutable prepared likelihood to the optional sampler. |

@@ -1,15 +1,18 @@
 """One immutable prepared likelihood per spawned worker; no old particles loaded."""
 import os
 from pathlib import Path
-import numpy as np
-from .io import read
-from .model import Model, DENOMINATOR
+from .model import Model
+from .prepared import load
 
-FOLDER=Path(os.environ['SUMSIGMOID_PREPARED'])
-CONFIG=read(FOLDER/'configuration.json')
-if CONFIG.get('transmission_denominator') != DENOMINATOR:
-    raise RuntimeError('Prepared configuration is historical or has a different denominator; do not reuse its ML fit for total-population inference')
-PRIORS=read(FOLDER/'TMCMC_priors.json')
-MODEL=Model(np.loadtxt(FOLDER/'training_observations.csv',delimiter=','),PRIORS['locations'],CONFIG)
+def bind(folder):
+    """Bind one validated preparation, or its immutable sampling snapshot."""
+    global FOLDER, CONTRACT, CONFIG, PRIORS, MODEL
+    FOLDER=Path(folder).resolve()
+    CONTRACT=load(FOLDER)
+    CONFIG=CONTRACT['scientific_configuration']
+    PRIORS=CONTRACT['priors']
+    MODEL=Model(CONTRACT['training_observations'],CONTRACT['locations'],CONFIG)
+
+bind(os.environ['SUMSIGMOID_PREPARED'])
 
 def logtarget(parameters):return MODEL.logtarget(parameters)
