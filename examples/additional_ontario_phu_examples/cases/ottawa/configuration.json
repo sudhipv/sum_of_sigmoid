@@ -1,0 +1,223 @@
+{
+  "id": "ottawa",
+  "dataset": "Ottawa",
+  "configuration_label": "Original automatic set; physical-validity-conditioned baseline",
+  "K": 15,
+  "p": 18,
+  "locations": [
+    5,
+    31,
+    45,
+    50,
+    53,
+    62,
+    71,
+    77,
+    92,
+    119,
+    120,
+    129,
+    138,
+    139,
+    153
+  ],
+  "calendar_origin": "2020-04-01",
+  "training_days": [
+    0,
+    159
+  ],
+  "forecast_observation_days": [
+    160,
+    199
+  ],
+  "native_evaluated_domain": [
+    0,
+    199.9
+  ],
+  "trajectory_dt": 0.1,
+  "original_sample_count": 4000,
+  "summary_sample_count": 3996,
+  "excluded_original_indices": [
+    443,
+    2837,
+    3048,
+    3113
+  ],
+  "summary_label": "Saved posterior conditioned on physical validity over the evaluated training and forecast domain; 4 of 4,000 samples excluded.",
+  "scientific_configuration": {
+    "data": {
+      "file": "../../datasets/ottawa/observations.csv",
+      "header": true,
+      "delimiter": ",",
+      "date_column": "date",
+      "count_column": "observed_I"
+    },
+    "time_origin": "2020-04-01",
+    "training_cutoff": "2020-09-07",
+    "population": 1017449,
+    "initial_guess": {
+      "E0": 136.0,
+      "I0": 136.0
+    },
+    "procedure": "legacy",
+    "seed": 20261031,
+    "output_directory": ".",
+    "tmcmc": {
+      "enabled": false,
+      "particles": 4000,
+      "workers": 8,
+      "seed": 106,
+      "mutation_policy": "original_adaptive"
+    },
+    "model": {
+      "dt": 0.1,
+      "sigma": 0.1,
+      "sigmoid_width": 1.0,
+      "gamma_e": 0.06666666666666667,
+      "gamma_i": 0.2,
+      "gamma_r": 0.09090909090909091,
+      "gamma_d": 0.0013333333333333333
+    },
+    "bounds": {
+      "baseline_ml": [
+        1e-06,
+        0.5
+      ],
+      "amplitudes_ml": [
+        -0.5,
+        0.5
+      ],
+      "initial_condition_upper_fraction": 0.001,
+      "baseline_tmcmc": [
+        0.0,
+        0.5
+      ],
+      "amplitude_tmcmc_magnitude": 0.5
+    },
+    "dataset_id": "ottawa",
+    "observation_quantity": "reported active cases",
+    "transmission_denominator": "total S+E+I+R+D",
+    "archived_preparation_note": "initial_guess and tmcmc.enabled describe preparation only; sampling_provenance.json records the executed historical sampler. No inference is implemented in this package."
+  },
+  "free_parameters": "beta0, every amplitude, E0 and I0; fixed locations/width/rates",
+  "initial_state": "S0=N0-E0-I0; R0=D0=0; initial_guess entries are optimizer starts only",
+  "noise_model": "Normal(I(t), (0.1*I(t))^2); normalized likelihood includes daily observations0-159",
+  "positivity": {
+    "training_grid": [
+      0,
+      159.9,
+      0.1
+    ],
+    "training_beta_lower_tolerance": -1e-12,
+    "daily_positive_I_in_likelihood": true,
+    "all_compartment_checks_inside_target": false,
+    "forecast_support_in_sampling": false,
+    "post_validation_domain": [
+      0,
+      199.9,
+      0.1
+    ],
+    "compartment_tolerance": -1e-08,
+    "mass_tolerance": 1e-06,
+    "clipping": false,
+    "posthoc_conditioning": true
+  },
+  "label": "Ottawa \u2014 Original automatic set; physical-validity-conditioned baseline; K=15, p=18",
+  "sample_schema": {
+    "parameter_columns": [
+      "beta0",
+      "A_day5",
+      "A_day31",
+      "A_day45",
+      "A_day50",
+      "A_day53",
+      "A_day62",
+      "A_day71",
+      "A_day77",
+      "A_day92",
+      "A_day119",
+      "A_day120",
+      "A_day129",
+      "A_day138",
+      "A_day139",
+      "A_day153",
+      "E0",
+      "I0"
+    ],
+    "time_units": "days",
+    "state_units": "persons",
+    "rate_units": "day^-1"
+  },
+  "propagation": {
+    "end_time": 199.9
+  },
+  "files": {
+    "samples": "posterior_samples.csv",
+    "observations": "../../datasets/ottawa/observations.csv"
+  },
+  "prior_support": {
+    "lower": [
+      0.0,
+      0.0,
+      -0.5,
+      0.0,
+      -0.5,
+      0.0,
+      0.0,
+      0.0,
+      -0.5,
+      0.0,
+      -0.5,
+      0.0,
+      0.0,
+      0.0,
+      -0.5,
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "upper": [
+      0.5,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.5,
+      0.0,
+      0.0,
+      1017.4490000000001,
+      1017.4490000000001
+    ]
+  },
+  "scoring_targets": {
+    "inference_days": [
+      0,
+      159
+    ],
+    "fit_scoring_mask_days": [
+      1,
+      159
+    ],
+    "forecast_days": [
+      160,
+      199
+    ],
+    "primary": "reported active cases",
+    "observation_predictive_target": "reported active cases",
+    "score_compatibility": "Archived scores retain their original target and interval definitions; no scorer equivalence is asserted."
+  },
+  "historical_conditioning": {
+    "sample_file_sha256": "26937e20f2dcebcd092040603543fa83e53778264a84ee2a6b97516f18ed95de",
+    "model_signature": "9a9187e83d816e8574badd2407d176af5267ede04a3e4e75a4fa13b27f9bab99",
+    "forward_model_sha256": "b9593cc2cd1c08b5b9fe0ce8293b2f779a56c2511b6ef139c59a65b939483fa8",
+    "exclusion_mask": "exclusion_mask.npy"
+  }
+}

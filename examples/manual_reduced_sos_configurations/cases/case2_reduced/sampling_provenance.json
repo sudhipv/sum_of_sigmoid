@@ -1,0 +1,31 @@
+{
+  "seed": 106,
+  "workers": 8,
+  "start_method": "spawn",
+  "original_source": {
+    "tmcmc_mod.py": {
+      "commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+      "repository_path": "inference/mcmc/tmcmc_mod/tmcmc_mod.py",
+      "git_blob": "18342107a4d4b4d0e6f975f0b52417f9c19052e3",
+      "sha256": "d1f4c251c8fcb9f1797604bb84ce4cf6826c0bd3a73336a9e85a461832a0e0e2"
+    },
+    "pdfs.py": {
+      "commit": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+      "repository_path": "inference/mcmc/tmcmc_mod/pdfs.py",
+      "git_blob": "542ff85259d7ec26d955ebd6105cc14caddd4883",
+      "sha256": "436163455a6f294f03339b45629d8f012511e4ba04c45467bddbd4d76bf86b6c"
+    }
+  },
+  "runner_sha256": "ccf8e5e462790ce367c32f5c2d42f21f04befb4a1efadd98e7493d13e765b114",
+  "model_sha256": "b9593cc2cd1c08b5b9fe0ce8293b2f779a56c2511b6ef139c59a65b939483fa8",
+  "original_worker_initialization": true,
+  "distinct_worker_initializer": false,
+  "mutation_policy": "fixed50",
+  "fresh_prior_initialization": true,
+  "executed_sampler": {
+    "sha256": "5f38aad7fce446037f43f16db24c582b310c038fc7f28babdfbef12da08a2142",
+    "derived_from": "e412562ac57cff503f0f6cc4c2bd9d63da04785b",
+    "source_difference": "Only Adap_calc_Nsteps='yes' -> 'no'",
+    "original_files_unchanged": true
+  }
+}

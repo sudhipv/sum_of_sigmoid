@@ -1,0 +1,13 @@
+parameter,internal_parameter,location,units,prior,prior_lower,prior_upper,ML_lower,ML_upper
+beta0,A0,,day^-1,Uniform,0.0,0.5,1e-06,0.5
+A_day19,A1,19,day^-1,Uniform,-0.5,0.0,-0.5,0.5
+A_day35,A2,35,day^-1,Uniform,0.0,0.5,-0.5,0.5
+A_day40,A3,40,day^-1,Uniform,-0.5,0.0,-0.5,0.5
+A_day45,A4,45,day^-1,Uniform,0.0,0.5,-0.5,0.5
+A_day58,A5,58,day^-1,Uniform,-0.5,0.0,-0.5,0.5
+A_day74,A6,74,day^-1,Uniform,-0.5,0.0,-0.5,0.5
+A_day89,A7,89,day^-1,Uniform,0.0,0.5,-0.5,0.5
+A_day104,A8,104,day^-1,Uniform,0.0,0.5,-0.5,0.5
+A_day112,A9,112,day^-1,Uniform,0.0,0.5,-0.5,0.5
+E0,E0,,persons,Uniform,0.0,2794.356,0,2794.356
+I0,I0,,persons,Uniform,0.0,2794.356,0,2794.356

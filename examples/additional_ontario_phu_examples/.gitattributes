@@ -1,0 +1,3 @@
+# Preserve exact bytes used by the supplied Ottawa provenance guards.
+forward_model.py text eol=lf
+cases/*/posterior_samples.csv text eol=lf

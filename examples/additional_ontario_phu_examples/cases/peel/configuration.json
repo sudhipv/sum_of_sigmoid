@@ -1,0 +1,204 @@
+{
+  "id": "peel",
+  "dataset": "Peel",
+  "configuration_label": "Automatic locations",
+  "K": 13,
+  "p": 16,
+  "locations": [
+    24,
+    25,
+    34,
+    36,
+    37,
+    64,
+    83,
+    90,
+    106,
+    114,
+    127,
+    129,
+    130
+  ],
+  "calendar_origin": "2020-04-01",
+  "training_days": [
+    0,
+    159
+  ],
+  "forecast_observation_days": [
+    160,
+    199
+  ],
+  "native_evaluated_domain": [
+    0,
+    199.9
+  ],
+  "trajectory_dt": 0.1,
+  "original_sample_count": 4000,
+  "summary_sample_count": 4000,
+  "excluded_original_indices": [],
+  "summary_label": "All 4,000 original equally weighted posterior rows retained.",
+  "scientific_configuration": {
+    "data": {
+      "file": "../../datasets/peel/observations.csv",
+      "header": true,
+      "delimiter": ",",
+      "date_column": "date",
+      "count_column": "observed_I"
+    },
+    "time_origin": "2020-04-01",
+    "training_cutoff": "2020-09-07",
+    "population": 1451022,
+    "initial_guess": {
+      "E0": 234.0,
+      "I0": 234.0
+    },
+    "procedure": "legacy",
+    "seed": 20261031,
+    "output_directory": ".",
+    "tmcmc": {
+      "enabled": false,
+      "particles": 4000,
+      "workers": 8,
+      "seed": 106,
+      "mutation_policy": "original_adaptive"
+    },
+    "model": {
+      "dt": 0.1,
+      "sigma": 0.1,
+      "sigmoid_width": 1.0,
+      "gamma_e": 0.06666666666666667,
+      "gamma_i": 0.2,
+      "gamma_r": 0.09090909090909091,
+      "gamma_d": 0.0013333333333333333
+    },
+    "bounds": {
+      "baseline_ml": [
+        1e-06,
+        0.5
+      ],
+      "amplitudes_ml": [
+        -0.5,
+        0.5
+      ],
+      "initial_condition_upper_fraction": 0.001,
+      "baseline_tmcmc": [
+        0.0,
+        0.5
+      ],
+      "amplitude_tmcmc_magnitude": 0.5
+    },
+    "dataset_id": "peel",
+    "observation_quantity": "reported active cases",
+    "transmission_denominator": "total S+E+I+R+D",
+    "archived_preparation_note": "initial_guess and tmcmc.enabled describe preparation only; sampling_provenance.json records the executed historical sampler. No inference is implemented in this package."
+  },
+  "free_parameters": "beta0, every amplitude, E0 and I0; fixed locations/width/rates",
+  "initial_state": "S0=N0-E0-I0; R0=D0=0; initial_guess entries are optimizer starts only",
+  "noise_model": "Normal(I(t), (0.1*I(t))^2); normalized likelihood includes daily observations0-159",
+  "positivity": {
+    "training_grid": [
+      0,
+      159.9,
+      0.1
+    ],
+    "training_beta_lower_tolerance": -1e-12,
+    "daily_positive_I_in_likelihood": true,
+    "all_compartment_checks_inside_target": false,
+    "forecast_support_in_sampling": false,
+    "post_validation_domain": [
+      0,
+      199.9,
+      0.1
+    ],
+    "compartment_tolerance": -1e-08,
+    "mass_tolerance": 1e-06,
+    "clipping": false,
+    "posthoc_conditioning": false
+  },
+  "label": "Peel \u2014 Automatic locations; K=13, p=16",
+  "sample_schema": {
+    "parameter_columns": [
+      "beta0",
+      "A_day24",
+      "A_day25",
+      "A_day34",
+      "A_day36",
+      "A_day37",
+      "A_day64",
+      "A_day83",
+      "A_day90",
+      "A_day106",
+      "A_day114",
+      "A_day127",
+      "A_day129",
+      "A_day130",
+      "E0",
+      "I0"
+    ],
+    "time_units": "days",
+    "state_units": "persons",
+    "rate_units": "day^-1"
+  },
+  "propagation": {
+    "end_time": 199.9
+  },
+  "files": {
+    "samples": "posterior_samples.csv",
+    "observations": "../../datasets/peel/observations.csv"
+  },
+  "prior_support": {
+    "lower": [
+      0.0,
+      -0.5,
+      0.0,
+      0.0,
+      -0.5,
+      -0.5,
+      -0.5,
+      0.0,
+      -0.5,
+      0.0,
+      -0.5,
+      0.0,
+      -0.5,
+      -0.5,
+      0.0,
+      0.0
+    ],
+    "upper": [
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.0,
+      1451.022,
+      1451.022
+    ]
+  },
+  "scoring_targets": {
+    "inference_days": [
+      0,
+      159
+    ],
+    "fit_scoring_mask_days": [
+      1,
+      159
+    ],
+    "forecast_days": [
+      160,
+      199
+    ],
+    "primary": "reported active cases",
+    "observation_predictive_target": "reported active cases",
+    "score_compatibility": "Archived scores retain their original target and interval definitions; no scorer equivalence is asserted."
+  }
+}

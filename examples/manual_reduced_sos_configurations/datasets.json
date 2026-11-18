@@ -1,0 +1,11 @@
+{
+  "title": "Manual and reduced automatic SoS configurations",
+  "case_ids": [
+    "case1_manual",
+    "case1_reduced",
+    "case2_manual",
+    "case2_reduced",
+    "toronto_manual",
+    "toronto_reduced"
+  ]
+}

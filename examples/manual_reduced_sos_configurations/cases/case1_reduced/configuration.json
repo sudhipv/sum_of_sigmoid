@@ -1,0 +1,192 @@
+{
+  "id": "case1_reduced",
+  "dataset": "Synthetic case one",
+  "configuration_label": "Reduced automatic set",
+  "K": 10,
+  "p": 13,
+  "locations": [
+    23,
+    36,
+    58,
+    68,
+    79,
+    89,
+    104,
+    109,
+    134,
+    143
+  ],
+  "calendar_origin": null,
+  "training_days": [
+    0,
+    159
+  ],
+  "forecast_observation_days": [
+    160,
+    199
+  ],
+  "native_evaluated_domain": [
+    0,
+    199.9
+  ],
+  "trajectory_dt": 1.0,
+  "original_sample_count": 4000,
+  "summary_sample_count": 4000,
+  "excluded_original_indices": [],
+  "summary_label": "All 4,000 original equally weighted posterior rows retained.",
+  "scientific_configuration": {
+    "data": {
+      "file": "../../datasets/case1/observations.csv",
+      "header": true,
+      "delimiter": ",",
+      "date_column": "day",
+      "count_column": "observed_I"
+    },
+    "time_origin": 0,
+    "training_cutoff": 159,
+    "population": 2794356,
+    "initial_guess": {
+      "E0": 430,
+      "I0": 430
+    },
+    "procedure": "legacy",
+    "seed": 20261031,
+    "output_directory": ".",
+    "tmcmc": {
+      "enabled": false,
+      "particles": 4000,
+      "workers": 8,
+      "seed": 106,
+      "mutation_policy": "original_adaptive"
+    },
+    "model": {
+      "dt": 0.1,
+      "sigma": 0.1,
+      "sigmoid_width": 1.0,
+      "gamma_e": 0.06666666666666667,
+      "gamma_i": 0.2,
+      "gamma_r": 0.09090909090909091,
+      "gamma_d": 0.0013333333333333333
+    },
+    "bounds": {
+      "baseline_ml": [
+        1e-06,
+        0.5
+      ],
+      "amplitudes_ml": [
+        -0.5,
+        0.5
+      ],
+      "initial_condition_upper_fraction": 0.001,
+      "baseline_tmcmc": [
+        0.0,
+        0.5
+      ],
+      "amplitude_tmcmc_magnitude": 0.5
+    },
+    "transmission_denominator": "total S+E+I+R+D",
+    "calendar_origin": null,
+    "archived_preparation_note": "initial_guess and tmcmc.enabled describe preparation only; sampling_provenance.json records the executed historical sampler. No inference is implemented in this package."
+  },
+  "free_parameters": "beta0, every amplitude, E0 and I0; fixed locations/width/rates",
+  "initial_state": "S0=N0-E0-I0; R0=D0=0; initial_guess entries are optimizer starts only",
+  "noise_model": "Normal(I(t), (0.1*I(t))^2); normalized likelihood includes daily observations0-159",
+  "positivity": {
+    "training_grid": [
+      0,
+      159.9,
+      0.1
+    ],
+    "training_beta_lower_tolerance": -1e-12,
+    "daily_positive_I_in_likelihood": true,
+    "all_compartment_checks_inside_target": false,
+    "forecast_support_in_sampling": false,
+    "post_validation_domain": [
+      0,
+      199.9,
+      0.1
+    ],
+    "compartment_tolerance": -1e-08,
+    "mass_tolerance": 1e-06,
+    "clipping": false,
+    "posthoc_conditioning": false
+  },
+  "label": "Synthetic case one \u2014 Reduced automatic set; K=10, p=13",
+  "sample_schema": {
+    "parameter_columns": [
+      "beta0",
+      "A_day23",
+      "A_day36",
+      "A_day58",
+      "A_day68",
+      "A_day79",
+      "A_day89",
+      "A_day104",
+      "A_day109",
+      "A_day134",
+      "A_day143",
+      "E0",
+      "I0"
+    ],
+    "time_units": "days",
+    "state_units": "persons",
+    "rate_units": "day^-1"
+  },
+  "propagation": {
+    "end_time": 199.9
+  },
+  "files": {
+    "samples": "posterior_samples.csv",
+    "observations": "../../datasets/case1/observations.csv",
+    "generating_truth": "../../datasets/case1/generating_truth.npz"
+  },
+  "prior_support": {
+    "lower": [
+      0.0,
+      -0.5,
+      0.0,
+      -0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "upper": [
+      0.5,
+      0.0,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.0,
+      0.5,
+      0.5,
+      2794.356,
+      2794.356
+    ]
+  },
+  "scoring_targets": {
+    "inference_days": [
+      0,
+      159
+    ],
+    "fit_scoring_mask_days": [
+      1,
+      159
+    ],
+    "forecast_days": [
+      160,
+      199
+    ],
+    "primary": "noise-free generating E/I/beta",
+    "observation_predictive_target": "saved noisy observations",
+    "score_compatibility": "Archived scores retain their original target and interval definitions; no scorer equivalence is asserted."
+  }
+}

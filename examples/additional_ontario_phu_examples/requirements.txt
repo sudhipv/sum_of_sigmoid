@@ -1,0 +1,8 @@
+# Reproduce the tested numerical environment with Python 3.11.
+numpy==1.26.0
+matplotlib==3.8.0
+nbformat==5.10.4
+nbclient==0.10.4
+ipykernel==7.2.0
+# Notebook browser frontend; kernel is also tested headlessly.
+jupyterlab>=4,<5

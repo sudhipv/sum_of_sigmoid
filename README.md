@@ -63,7 +63,42 @@ samples; an integer selects one row. These notebooks never optimize or sample.
 They regenerate continuous E/I/beta trajectories, separate latent and
 observation-predictive outputs, figures and accepted scores, and compare compact
 saved references. Generated ensembles are intentionally excluded from Git and the
-small package. Source-only Git checkouts need the separately supplied samples.
+small package. These three baseline notebooks need the separately supplied
+baseline samples. The standalone posterior examples below include their own
+named samples in Git.
+
+## Standalone posterior examples (forward calculation only)
+
+These examples include posterior parameter samples and weights, observations,
+settings, the verified forward model, and notebooks. They reproduce fitting and
+forecasting results by **forward propagation of supplied posterior samples**;
+they do not run optimization or new TMCMC inference.
+
+- [Manual and reduced automatic SoS configurations](examples/manual_reduced_sos_configurations/README.md):
+  six configurations across synthetic cases one and two and Toronto.
+- [Additional Ontario PHU examples](examples/additional_ontario_phu_examples/README.md):
+  Durham, Peel and Ottawa. Ottawa retains all 4,000 original samples and its
+  existing exclusion mask; conditional fit and forecast summaries use 3,996.
+
+From the repository root choose one example directory, then run:
+
+```bash
+cd examples/manual_reduced_sos_configurations
+# Alternatively, from the repository root:
+# cd examples/additional_ontario_phu_examples
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m jupyterlab forward_model.ipynb
+```
+
+Open `forward_model.ipynb` and execute its cells in order. `CASE="all"` runs all
+configurations supplied in that example. For the terminal-only alternative,
+from the same example directory run `python run.py --case all`. Generated files
+are written under that example's `outputs/`. Each README documents the exact
+input schema, scientific assumptions, and the intentionally retained local
+model snapshot. No precomputed posterior trajectory ensembles or duplicate ZIP
+archives are required or committed for these examples.
 
 The manual notebooks and quickstart below are **historical alternatives** with
 their earlier settings, independent equations and hard-coded configurations.

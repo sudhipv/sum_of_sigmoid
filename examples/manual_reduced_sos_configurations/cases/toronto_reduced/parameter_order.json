@@ -1,0 +1,49 @@
+{
+  "internal_parameter_order": [
+    "A0",
+    "A1",
+    "A2",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10",
+    "A11",
+    "E0",
+    "I0"
+  ],
+  "CSV_parameter_columns": [
+    "beta0",
+    "A_day24",
+    "A_day35",
+    "A_day39",
+    "A_day46",
+    "A_day57",
+    "A_day75",
+    "A_day88",
+    "A_day94",
+    "A_day111",
+    "A_day131",
+    "A_day143",
+    "E0",
+    "I0"
+  ],
+  "sigmoid_locations": [
+    24,
+    35,
+    39,
+    46,
+    57,
+    75,
+    88,
+    94,
+    111,
+    131,
+    143
+  ],
+  "baseline_synonym": "A0 = beta0",
+  "rows": "Original final-particle order; not independent mutation chains"
+}
